@@ -608,6 +608,15 @@ div.a {
   width: 100%;
   max-width: 1280px;
   gap: 0.75rem;
+}
+
+.main > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(0.75rem * var(--tw-space-y-reverse));
+}
+
+.main {
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
 }
@@ -615,6 +624,12 @@ div.a {
 @media (min-width: 768px) {
   .main {
     display: grid;
+  }
+
+  .main > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-y-reverse: 0;
+    margin-top: calc(0px * calc(1 - var(--tw-space-y-reverse)));
+    margin-bottom: calc(0px * var(--tw-space-y-reverse));
   }
 
   .main {
