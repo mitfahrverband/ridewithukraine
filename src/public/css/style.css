@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body {
+  min-height: 100vh;
+}
+
+body {
+  background-color: #f0f0f0;
+}
+
+div.a {
+  background-color: #2c73b8;;
+  color: white;
+}
+
+.main {
+  @apply 
+  w-full max-w-screen-xl mx-auto md:px-3
+  md:grid gap-3
+  py-3
+  mb-auto
+}
+
+.menuButton {
+  @apply w-10 h-10 hover:bg-gray-500 
+  flex items-center justify-center
+  cursor-pointer
+}

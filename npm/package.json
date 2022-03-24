@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "tailwind": "tailwindcss -i ../src/public/css/style.css -o ../src/public/css/style.min.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.0.23"
+  }
+}
