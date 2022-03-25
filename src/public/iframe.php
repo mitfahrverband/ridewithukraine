@@ -5,9 +5,9 @@
     <meta name="iframe" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
-    <header>
-    <h1 class="headertext"><img src="https://avatars.githubusercontent.com/u/77687247?s=200&v=4" class="mitfahrverband-logo">Powered by Mitfahrverband</h1>
-    </header>
+<!--    <header>-->
+<!--    <h1 class="headertext"><img src="https://avatars.githubusercontent.com/u/77687247?s=200&v=4" class="mitfahrverband-logo">Powered by Mitfahrverband</h1>-->
+<!--    </header>-->
     <div id="iframe-container">
     <?php 
       echo '<table id="result-container-card">';
