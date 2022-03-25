@@ -1,15 +1,15 @@
 <html>
   <head>
-    <title>PHP Test</title>
-    <link rel="stylesheet" type="text/css" href="trips.css">
+    <title>iframe</title>
+    <link rel="stylesheet" type="text/css" href="iframe.css">
+    <meta name="iframe" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
-    <div class="container">
     <header>
     <h1 class="headertext"><img src="https://avatars.githubusercontent.com/u/77687247?s=200&v=4" class="mitfahrverband-logo">Powered by Mitfahrverband</h1>
     </header>
-    <main>
-      <?php 
+    <div id="iframe-container">
+    <?php 
       echo '<table id="result-container-card">';
         $filedata = file_get_contents('./data/json_data.json');
         $details = json_decode($filedata, true);?>
@@ -18,19 +18,23 @@
           echo '<tr>';
 
           echo '<td id="departTime">';
-          echo($element['departTime']. '<br>');
+          echo($element['departTime']);
           echo '</td>';
 
           echo '<td id="dateTime">';
-          echo "2022.03.24.";
+          echo "24.03.2022";
           echo '</td>';
 
 
           echo '<td id="origin">';
-          echo ($element['stops'][0]['address']. '<br>');
+          echo "<div id='trip_path_div'>";
+          echo ($element['stops'][0]['address']);
+          echo "</div>";
           echo '</td>';
           echo '<td id="destination">';
-          echo end($element['stops'])['address']. '<br>';
+          echo "<div id='trip_path_div'>";
+          echo end($element['stops'])['address'];
+          echo "</div>";
           echo '</td>';
         
 
@@ -55,19 +59,7 @@
 
           echo '</tr>';
           echo '</table>';
-        ?>
-      </main>
-      <div id="right">
-      <div id="menu">Menü / FAQ / Hints for safe trips /.../.../.../</div>
-      <div id="content1">Welcome message</div>
-      <div id="search">Meta search mask</div>
-      <div id="content2">Die meisten zur Verfügung gestellten Routen</div>
-
-      <footer>
-        <p>Footer/ Impressum / Kontakt / Support /.../.../.../</p>
-        </footer>
-
+          ?>
       </div>
-  </div>
   </body>
 </html>
