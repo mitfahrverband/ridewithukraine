@@ -52,7 +52,7 @@ class Document {
         self::addHead("<link rel=\"icon\" type=\"$type\" href=\"$href\">", $order);
     }
 
-    static function addStyle(string /*|callable*/ $style, $order = 60) {
+    static function addStyle(string|callable $style, $order = 60) {
         $head = function () use ($style) {
             echo '<style>';
             echo is_string($style) ? $style : $style();
