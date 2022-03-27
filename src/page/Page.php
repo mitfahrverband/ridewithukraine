@@ -20,21 +20,26 @@ class Page extends Document {
                 <span class="mr-auto">#RideWithUkraine</span>
                 <span class="md:hidden menuButton">☰</span>
                 <div class="md:hidden menu hidden absolute top-full right-0"><?php Menu::render() ?></div>
-                <script>$('.menuButton').onClick(() => $('.menu')[0].classList.toggle('hidden'))</script>
+                <script>
+                  $('.menuButton').onClick((e) => {
+                    e.target.classList.toggle('bg-primary');
+                    $('.menu')[0].classList.toggle('hidden');
+                  })
+                </script>
             </div>
-            <img class="h-20 absolute top-5 right-0 pointer-events-none	" src="/img/auto_frontElement4.svg">
+            <img class="h-24 absolute top-6 right-0 pointer-events-none	z-20" src="/img/auto_frontElement4.svg">
             <div class="main grid-cols-3">
                 <?php
                 $renderFunction();
                 ?>
             </div>
-            <div class="footer">
+            <div class="footer font-sans">
                 <div class="flex justify-center items-center">
                     <span class="mr-3">powered by</span>
                     <img src="https://avatars.githubusercontent.com/u/77687247?s=200&v=4" class="w-10 h-10">
                     <span class="text-xs md:text-base">Mitfahrverband</span>
                 </div>
-                <div class="end"></div>
+                <div class="end bg-mitfahrverband h-4"></div>
             </div>
             <?php
         });

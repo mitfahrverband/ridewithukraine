@@ -3,74 +3,74 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: DINAlternateBold;
-  src: url("./DINAlternateBold.ttf")
+    font-family: DINAlternateBold;
+    src: url("./DINAlternateBold.ttf")
+}
+
+
+html {
+    -webkit-tap-highlight-color: transparent;
 }
 
 html, body {
-  min-height: 100vh;
+    min-height: 100vh;
 }
 
 body {
-  background-color: #f0f0f0;
-  font-family: 'DINAlternateBold', serif;
-  display: flex;
-  flex-direction: column;
+    @apply bg-background;
+    font-family: 'DINAlternateBold', serif;
+    display: flex;
+    flex-direction: column;
 }
 
 div.a {
-  background-color: #2d71b7;
-  color: white;
+    background-color: #2d71b7;
+    color: white;
 }
 
 .header-top, .header-bottom {
-  line-height: 1em;
-  color: white;
+    line-height: 1em;
+    color: white;
 }
 
 .header-top {
-  @apply h-20 bg-primary;
-}
-
-.header-bottom {
-  @apply h-10 bg-secondary flex items-center;
-}
-
-.header-top, .header-bottom span:first-child {
-  @apply p-2;
+    @apply h-24 bg-primary;
 }
 
 .header-top p {
-  @apply pb-1;
+    @apply pb-1;
+}
+
+.header-bottom {
+    @apply h-12 bg-secondary flex items-center z-10;
+}
+
+.header-top, .header-bottom span:first-child {
+    @apply p-2;
 }
 
 .menuButton {
-  @apply w-10 h-10
-  flex items-center justify-center
-  hover:bg-primary cursor-pointer;
+    @apply w-12 h-12
+    flex items-center justify-center
+    cursor-pointer;
 }
 
 .menu {
-  min-width: 200px;
-  background: white;
-  color: black;
-  @apply shadow-md;
+    min-width: 200px;
+    background: white;
+    color: black;
+    @apply shadow-md;
 }
 
 .menu p {
-  @apply p-3 hover:bg-primary hover:text-white
+    @apply p-3 hover:bg-primary hover:text-white
 }
 
 .main {
-  @apply 
-  w-full max-w-screen-xl mx-auto md:px-3
-  md:grid gap-3
-  space-y-3 md:space-y-0
-  py-3
-  mb-auto
-}
-
-.end {
-  background-color: #008a56;
-  height: 1rem;
+    @apply
+    flex-1
+    w-full max-w-screen-xl mx-auto md:px-3
+    flex flex-col space-y-3
+    md:grid gap-3 md:space-y-0
+    py-3
 }
