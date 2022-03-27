@@ -14,6 +14,8 @@ html, body {
 body {
   background-color: #f0f0f0;
   font-family: 'DINAlternateBold', serif;
+  display: flex;
+  flex-direction: column;
 }
 
 div.a {
@@ -21,28 +23,42 @@ div.a {
   color: white;
 }
 
-.header {
+.header-top, .header-bottom {
   line-height: 1em;
   color: white;
-  @apply h-36;
 }
 
 .header-top {
-  background-color: #2d71b7;
-  height: 66%;
+  @apply h-20 bg-primary;
 }
 
 .header-bottom {
-  background-color: #f7db15;
-  height: 33%;
+  @apply h-10 bg-secondary flex items-center;
 }
 
-.header > div {
+.header-top, .header-bottom span:first-child {
   @apply p-2;
 }
 
-.header p {
+.header-top p {
   @apply pb-1;
+}
+
+.menuButton {
+  @apply w-10 h-10
+  flex items-center justify-center
+  hover:bg-primary cursor-pointer;
+}
+
+.menu {
+  min-width: 200px;
+  background: white;
+  color: black;
+  @apply shadow-md;
+}
+
+.menu p {
+  @apply p-3 hover:bg-primary hover:text-white
 }
 
 .main {
