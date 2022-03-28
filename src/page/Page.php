@@ -12,18 +12,20 @@ class Page extends Document {
         parent::render(function () use ($renderFunction) {
             ?>
             <div class="header-top text-3xld">
-                <p>Карпулінг —</p>
-                <p>Mitfahrgelegenheiten</p>
-                <p>für Kriegsgeflüchtete.</p>
+                <a href="/">
+                    <p>Карпулінг —</p>
+                    <p>Mitfahrgelegenheiten</p>
+                    <p>für Kriegsgeflüchtete.</p>
+                </a>
             </div>
             <div class="header-bottom sticky md:static top-0 flex text-3xld">
-                <span class="mr-auto">#RideWithUkraine</span>
+                <a href="/"><span class="mr-auto">#RideWithUkraine</span></a>
                 <span class="md:hidden menuButton">☰</span>
                 <div class="md:hidden menu hidden absolute top-full right-0"><?php Menu::render() ?></div>
                 <script>
                   $('.menuButton').onClick((e) => {
                     e.target.classList.toggle('bg-primary');
-                    $('.menu')[0].classList.toggle('hidden');
+                    $('.header-bottom .menu').classList.toggle('hidden');
                   })
                 </script>
             </div>

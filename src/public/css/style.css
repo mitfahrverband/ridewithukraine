@@ -26,6 +26,7 @@ body {
 div.a {
     background-color: #2d71b7;
     color: white;
+    @apply pl-1;
 }
 
 .header-top, .header-bottom {
@@ -42,7 +43,10 @@ div.a {
 }
 
 .header-bottom {
-    @apply h-12 bg-secondary flex items-center z-10;
+    @apply
+    h-12 z-10
+    flex items-center
+    bg-secondary shadow-md
 }
 
 .header-top, .header-bottom span:first-child {
