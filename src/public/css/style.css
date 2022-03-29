@@ -2,6 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+    h1 {
+        @apply text-2xl;
+        margin: revert;
+    }
+
+    h2 {
+        @apply text-xl;
+        margin: revert;
+    }
+
+    ul {
+        list-style: revert;
+        margin: revert;
+        padding: revert;
+    }
+}
+
 @font-face {
     font-family: DINAlternateBold;
     src: url("./DINAlternateBold.ttf")

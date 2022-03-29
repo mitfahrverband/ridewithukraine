@@ -18,10 +18,10 @@ class Page extends Document {
                     <p>für Kriegsgeflüchtete.</p>
                 </a>
             </div>
-            <div class="header-bottom sticky md:static top-0 flex text-3xld">
-                <a href="/"><span class="mr-auto">#RideWithUkraine</span></a>
-                <span class="md:hidden menuButton">☰</span>
-                <div class="md:hidden menu hidden absolute top-full right-0"><?php Menu::render() ?></div>
+            <div class="header-bottom sticky top-0 flex text-3xld">
+                <span class="mr-auto"><a href="/">#RideWithUkraine</a></span>
+                <span class="menuButton">☰</span>
+                <div class="menu hidden absolute top-full right-0"><?php Menu::render() ?></div>
                 <script>
                   $('.menuButton').onClick((e) => {
                     e.target.classList.toggle('bg-primary');
@@ -38,8 +38,7 @@ class Page extends Document {
             <div class="footer font-sans">
                 <div class="flex justify-center items-center">
                     <span class="mr-3">powered by</span>
-                    <img src="https://avatars.githubusercontent.com/u/77687247?s=200&v=4" class="w-10 h-10">
-                    <span class="text-xs md:text-base">Mitfahrverband</span>
+                    <img src="/img/Mitfahrverband_eV_logo_lang.png" class="h-20">
                 </div>
                 <div class="end bg-mitfahrverband h-4"></div>
             </div>

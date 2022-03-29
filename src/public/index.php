@@ -12,12 +12,10 @@ Page::render(function () {
         <div class="flex-1 relative flex justify-center items-center"><?php renderIframe(); ?></div>
     </div>
     <div class="hidden md:block md:space-y-3">
-        <div class="a">Search</div>
         <div class="menu">
             <div class="a">Menü</div>
             <?php Menu::render(); ?>
         </div>
-        <div class="a">Routes</div>
     </div>
     <?php
 });
