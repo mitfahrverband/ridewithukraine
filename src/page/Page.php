@@ -3,6 +3,7 @@ namespace page;
 
 use core\html\document\Document;
 
+Document::addIcon('image/svg+xml', '/img/auto_frontElement4.svg');
 Document::addStylesheet('css/style.min.css');
 Document::addScriptFile('js/script.js');
 
