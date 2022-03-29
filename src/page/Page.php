@@ -2,10 +2,13 @@
 namespace page;
 
 use core\html\document\Document;
+use core\language\Label;
 
 Document::addIcon('image/svg+xml', '/img/auto_frontElement4.svg');
 Document::addStylesheet('css/style.min.css');
 Document::addScriptFile('js/script.js');
+
+Label::addFile(__DIR__ . '/../labels/labels_de.properties');
 
 class Page extends Document {
 
@@ -13,14 +16,10 @@ class Page extends Document {
         parent::render(function () use ($renderFunction) {
             ?>
             <div class="header-top text-3xld">
-                <a href="/">
-                    <p>Карпулінг —</p>
-                    <p>Mitfahrgelegenheiten</p>
-                    <p>für Kriegsgeflüchtete.</p>
-                </a>
+                <a href="/"><?= Label::get('headerTop') ?></a>
             </div>
             <div class="header-bottom sticky top-0 flex text-3xld">
-                <span class="mr-auto"><a href="/">#RideWithUkraine</a></span>
+                <span class="mr-auto"><a href="/"><?= Label::get('headerBottom') ?></a></span>
                 <span class="menuButton">☰</span>
                 <div class="menu hidden absolute top-full right-0"><?php Menu::render() ?></div>
                 <script>

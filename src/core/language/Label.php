@@ -6,6 +6,20 @@ class Label {
     static $data;
     static $defaultKey = 'de';
 
+    static function addFile(string $path) {
+        $values = @parse_ini_file($path) ?: [];
+
+        $language = Language::get();
+        if ($language) {
+            $extensionPos = strrpos($path, '.');
+            $nameEndPos = ($path[$extensionPos - 3] === '_') ? $extensionPos - 3 : $extensionPos;
+            $languagePath = substr($path, 0, $nameEndPos) . "_$language" . substr($path, $extensionPos);
+            $values = (@parse_ini_file($languagePath) ?: []) + $values;
+        }
+
+        self::add($values);
+    }
+
     static function add(...$labelLists) {
         self::combine($labelLists, function ($currentValue, $newValue) {
             if (isset($currentValue) && is_array($currentValue)) {

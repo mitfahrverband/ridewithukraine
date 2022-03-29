@@ -1,19 +1,19 @@
 <?php
+use core\language\Label;
 use page\Menu;
 use page\Page;
 
 require_once "../core/Autoload.php";
 
-Page::setTitle('RideWithUkraine');
 Page::render(function () {
     ?>
     <div class="flex-1 col-span-2 space-y-3 flex flex-col">
-        <div class="a">Welcome</div>
+        <div class="a"><?= Label::get('landing.welcome') ?></div>
         <div class="flex-1 relative flex justify-center items-center"><?php renderIframe(); ?></div>
     </div>
     <div class="hidden md:block md:space-y-3">
         <div class="menu">
-            <div class="a">Menü</div>
+            <div class="a"><?= Label::get('landing.menu') ?></div>
             <?php Menu::render(); ?>
         </div>
     </div>

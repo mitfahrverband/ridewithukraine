@@ -3,6 +3,7 @@ use page\Page;
 
 require_once "../core/Autoload.php";
 
+Page::setName('privacyPolicy');
 Page::render(function () {
     ?>
     <div class="col-span-3 mx-3">
