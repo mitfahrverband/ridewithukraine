@@ -8,6 +8,7 @@
 Only needed if tailwind classes are changed/added.
 ```
 cd npm
+npm install
 npm run tailwind
 ```
 The command watches for file changes in directories specified in `npm/tailwind.config.js` 
