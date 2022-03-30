@@ -2,32 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-    h1 {
-        @apply text-2xl;
-        margin: revert;
-    }
-
-    h2 {
-        @apply text-xl;
-        margin: revert;
-    }
-
-    ul {
-        list-style: revert;
-        margin: revert;
-        padding: revert;
-    }
-}
-
 @font-face {
     font-family: DINAlternateBold;
     src: url("./DINAlternateBold.ttf")
 }
 
-
 html {
     -webkit-tap-highlight-color: transparent;
+    scroll-padding-top: 3rem;
+    scroll-behavior: smooth;
 }
 
 html, body {
@@ -48,31 +31,37 @@ div.a {
 }
 
 .header-top, .header-bottom {
-    line-height: 1em;
     color: white;
+    @apply text-xl;
+    line-height: 1.2em;
 }
 
 .header-top {
-    @apply h-24 bg-primary;
+    @apply h-32 bg-primary;
 }
 
-.header-top p {
-    @apply pb-1;
+.header-top div {
+    @apply mt-3;
 }
 
 .header-bottom {
     @apply
-    h-12 z-10
-    flex items-center
+    h-16 z-10
+    flex items-end
     bg-secondary shadow-md
+    sticky -top-4
 }
 
-.header-top, .header-bottom span:first-child {
-    @apply p-2;
+.header-top, .header-bottom span {
+    @apply p-3;
+}
+
+.logo {
+    @apply h-24 absolute top-14 right-0 pointer-events-none z-20;
 }
 
 .menuButton {
-    @apply w-12 h-12
+    @apply w-12
     flex items-center justify-center
     cursor-pointer;
 }
@@ -91,8 +80,68 @@ div.a {
 .main {
     @apply
     flex-1
-    w-full max-w-screen-xl mx-auto md:px-3
+    w-full max-w-screen-xl mx-auto
     flex flex-col space-y-3
     md:grid gap-3 md:space-y-0
-    py-3
+    bg-secondary
+    space-y-16
+}
+
+@layer components {
+    .btn-primary {
+        @apply text-primary bg-white text-xl
+        px-5 py-2
+        rounded-lg
+        inline-block
+    }
+}
+
+/* Index */
+.intro {
+    @apply px-3 py-16
+    bg-gray-600
+    space-y-5
+}
+
+.intro > div {
+    max-width: 80%;
+    @apply space-y-4
+}
+
+.intro h2 {
+    @apply text-white text-xl
+}
+
+.intro a {
+    @apply btn-primary
+}
+
+.intro > p {
+    @apply text-secondary text-xl
+}
+
+
+/* Platform */
+.platform {
+    @apply bg-primary
+    px-3 py-5
+}
+
+.platform h2 {
+    @apply btn-primary
+    mb-3
+}
+
+.platform p {
+    @apply text-white text-xl
+}
+
+.platform .brands {
+    @apply bg-white
+    rounded-lg
+    my-3
+}
+
+.platform .brands p {
+    @apply btn-primary text-black text-base
 }

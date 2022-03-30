@@ -4,13 +4,17 @@ use page\Page;
 require_once "../core/Autoload.php";
 
 Page::setName('privacyPolicy');
+
+Page::addStylesheet('/css/text.css');
+
 Page::render(function () {
     ?>
     <div class="col-span-3 mx-3">
         <h1>Datenschutz</h1>
 
         <p>Wir freuen uns über Ihren Besuch auf unserer Internetseite und Ihrem Interesse an unserem Unternehmen. Der
-            Schutz Ihrer personenbezogenen Daten ist uns ein wichtiges Anliegen. Nachstehend informieren wir Sie gemäß Art. 12,
+            Schutz Ihrer personenbezogenen Daten ist uns ein wichtiges Anliegen. Nachstehend informieren wir Sie gemäß
+            Art. 12,
             13 und 21 der Datenschutzgrundverordnung (DSGVO) über den Umgang mit Ihren personenbezogenen Daten bei der
             Nutzung unserer Website www.mitfahrverband.org</p>
 

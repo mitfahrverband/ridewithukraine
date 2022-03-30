@@ -1,0 +1,17 @@
+h1 {
+    font-size: revert;
+    line-height: revert;
+    margin: revert;
+}
+
+h2 {
+    font-size: revert;
+    line-height: revert;
+    margin: revert;
+}
+
+ul {
+    list-style: revert;
+    margin: revert;
+    padding: revert;
+}

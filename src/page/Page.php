@@ -16,9 +16,11 @@ class Page extends Document {
         parent::render(function () use ($renderFunction) {
             ?>
             <div class="header-top text-3xld">
-                <a href="/"><?= Label::get('headerTop') ?></a>
+                <a href="/">
+                    <div><?= Label::get('headerTop') ?></div>
+                </a>
             </div>
-            <div class="header-bottom sticky top-0 flex text-3xld">
+            <div class="header-bottom">
                 <span class="mr-auto"><a href="/"><?= Label::get('headerBottom') ?></a></span>
                 <span class="menuButton">☰</span>
                 <div class="menu hidden absolute top-full right-0"><?php Menu::render() ?></div>
@@ -29,7 +31,7 @@ class Page extends Document {
                   })
                 </script>
             </div>
-            <img class="h-24 absolute top-6 right-0 pointer-events-none	z-20" src="/img/auto_frontElement4.svg">
+            <img class="logo" src="/img/auto_frontElement4.svg">
             <div class="main grid-cols-3">
                 <?php
                 $renderFunction();
@@ -38,7 +40,7 @@ class Page extends Document {
             <div class="footer font-sans">
                 <div class="flex justify-center items-center">
                     <span class="mr-3">powered by</span>
-                    <img src="/img/Mitfahrverband_eV_logo_lang.png" class="h-20">
+                    <img src="/img/Mitfahrverband_eV_logo_lang.png" class="h-20" style="margin: -15px">
                 </div>
                 <div class="end bg-mitfahrverband h-4"></div>
             </div>

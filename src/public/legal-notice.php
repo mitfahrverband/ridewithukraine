@@ -4,6 +4,9 @@ use page\Page;
 require_once "../core/Autoload.php";
 
 Page::setName('legalNotice');
+
+Page::addStylesheet('/css/text.css');
+
 Page::render(function () {
     ?>
     <div class="col-span-3 mx-3">

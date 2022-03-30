@@ -6,6 +6,8 @@ use page\Page;
 require_once "../core/Autoload.php";
 
 Page::render(function () {
+    renderIntro();
+    renderPlatform();
     ?>
     <div class="flex-1 col-span-2 space-y-3 flex flex-col">
         <div class="a"><?= Label::get('landing.welcome') ?></div>
@@ -19,6 +21,35 @@ Page::render(function () {
     </div>
     <?php
 });
+
+function renderIntro() {
+    ?>
+    <div class="intro">
+        <div>
+            <h2><?= Label::get('intro.platform.text') ?></h2>
+            <a href="#platform"><?= Label::get('intro.platform.button') ?></a>
+        </div>
+        <div>
+            <h2><?= Label::get('intro.print.text') ?></h2>
+            <a><?= Label::get('intro.print.button') ?></a>
+        </div>
+        <p><?= Label::get('intro.subText') ?></p>
+    </div>
+    <?php
+}
+
+function renderPlatform() {
+    ?>
+    <div id="platform" class="platform">
+        <h2><?= Label::get('intro.platform.button') ?></h2>
+        <p><?= Label::get('platform.text') ?></p>
+        <div class="brands">
+            <p><?= Label::get('platform.brands.subText') ?></p>
+        </div>
+        <p><?= Label::get('platform.steps') ?></p>
+    </div>
+    <?php
+}
 
 function renderIframe() {
     ?>
