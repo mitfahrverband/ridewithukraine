@@ -10,7 +10,7 @@ class Language {
 
     static string $preferred;
 
-    static function get(): string/*|null*/ {
+    static function get(): string|null {
         return self::fromAttribute() ?? self::$preferred ?? self::fromHeader() ?? self::$languages[0] ?? null;
     }
 
@@ -18,14 +18,13 @@ class Language {
         if (self::isValid($lang)) self::$preferred = $lang;
     }
 
-    static function fromAttribute(): string/*|null*/ {
+    static function fromAttribute(): string|null {
         $lang = $_GET['lang'] ?? null;
-        //if (!$lang || !self::isValid($lang)) return null;
-        // return $lang;
-	return "de";
+        if (!$lang || !self::isValid($lang)) return null;
+        return $lang;
     }
 
-    static function fromHeader(): string/*|null*/ {
+    static function fromHeader(): string|null {
         $lang = $_SERVER['HTTP_ACCEPT_LANGUAGE'] ?? null;
         if (!$lang || !is_string($lang)) return null;
         $lang = substr($lang, 0, 2);

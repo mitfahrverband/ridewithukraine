@@ -2,30 +2,97 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+    h1 {
+        @apply text-2xl;
+        margin: revert;
+    }
+
+    h2 {
+        @apply text-xl;
+        margin: revert;
+    }
+
+    ul {
+        list-style: revert;
+        margin: revert;
+        padding: revert;
+    }
+}
+
+@font-face {
+    font-family: DINAlternateBold;
+    src: url("./DINAlternateBold.ttf")
+}
+
+
+html {
+    -webkit-tap-highlight-color: transparent;
+}
+
 html, body {
-  min-height: 100vh;
+    min-height: 100vh;
 }
 
 body {
-  background-color: #f0f0f0;
+    @apply bg-background;
+    font-family: 'DINAlternateBold', serif;
+    display: flex;
+    flex-direction: column;
 }
 
 div.a {
-  background-color: #2c73b8;;
-  color: white;
+    background-color: #2d71b7;
+    color: white;
+    @apply pl-1;
 }
 
-.main {
-  @apply 
-  w-full max-w-screen-xl mx-auto md:px-3
-  md:grid gap-3
-  space-y-3 md:space-y-0
-  py-3
-  mb-auto
+.header-top, .header-bottom {
+    line-height: 1em;
+    color: white;
+}
+
+.header-top {
+    @apply h-24 bg-primary;
+}
+
+.header-top p {
+    @apply pb-1;
+}
+
+.header-bottom {
+    @apply
+    h-12 z-10
+    flex items-center
+    bg-secondary shadow-md
+}
+
+.header-top, .header-bottom span:first-child {
+    @apply p-2;
 }
 
 .menuButton {
-  @apply w-10 h-10 hover:bg-gray-500 
-  flex items-center justify-center
-  cursor-pointer
+    @apply w-12 h-12
+    flex items-center justify-center
+    cursor-pointer;
+}
+
+.menu {
+    min-width: 200px;
+    background: white;
+    color: black;
+    @apply shadow-md;
+}
+
+.menu p {
+    @apply p-3 hover:bg-primary hover:text-white
+}
+
+.main {
+    @apply
+    flex-1
+    w-full max-w-screen-xl mx-auto md:px-3
+    flex flex-col space-y-3
+    md:grid gap-3 md:space-y-0
+    py-3
 }

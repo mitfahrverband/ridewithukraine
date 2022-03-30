@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "tailwind": "tailwindcss -i ../src/public/css/style.css -o ../src/public/css/style.min.css --watch"
+    "tailwind": "tailwindcss -i ../src/public/css/style.css -o ../src/public/css/style.min.css --watch -m"
   },
   "devDependencies": {
     "tailwindcss": "^3.0.23"

@@ -6,12 +6,20 @@ use core\language\{Label, Language};
 class Document {
 
     public static bool $webAppCapable = true;
+    protected static ?string $name = null;
     protected static ?string $title = null;
     protected static ?string $description = null;
     protected static array $head = [];
 
+    static function setName(string $name) {
+        self::$name = $name;
+    }
+
     static function getTitle(): string {
-        return self::$title ?? Label::getOrDefault('document.title', '');
+        if (isset(self::$title)) return self::$title;
+        if (isset(self::$name)) $title = Label::getOrDefault(self::$name . '.title', null);
+        $title ??= Label::getOrDefault('document.title', '');
+        return $title;
     }
 
     static function setTitle(string $title) {
@@ -52,7 +60,7 @@ class Document {
         self::addHead("<link rel=\"icon\" type=\"$type\" href=\"$href\">", $order);
     }
 
-    static function addStyle(string /*|callable*/ $style, $order = 60) {
+    static function addStyle(string|callable $style, $order = 60) {
         $head = function () use ($style) {
             echo '<style>';
             echo is_string($style) ? $style : $style();
