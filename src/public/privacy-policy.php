@@ -31,8 +31,7 @@ Page::render(function () {
 
 
         <p>Gemäß § 38 BDSG benötigen wir aufgrund der geringen Anzahl der mit personenbezogener Daten Beschäftigten und
-            der
-            hier nicht vorliegende Gefährdungskonstellation für die Daten keinen Datenschutzbeauftragten.</p>
+            der hier nicht vorliegende Gefährdungskonstellation für die Daten keinen Datenschutzbeauftragten.</p>
 
 
         <h1>Zwecke und Rechtsgrundlagen der Datenverarbeitung</h1>
