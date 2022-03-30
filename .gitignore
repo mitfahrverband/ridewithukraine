@@ -2,3 +2,5 @@
 *.iml
 /npm/node_modules/
 /src/public/data/json_data.json
+*~
+publish.sh
