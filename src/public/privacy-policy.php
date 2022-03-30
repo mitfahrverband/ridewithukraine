@@ -10,12 +10,9 @@ Page::render(function () {
         <h1>Datenschutz</h1>
 
         <p>Wir freuen uns über Ihren Besuch auf unserer Internetseite und Ihrem Interesse an unserem Unternehmen. Der
-            Schutz
-            Ihrer personenbezogenen Daten ist uns ein wichtiges Anliegen. Nachstehend informieren wir Sie gemäß Art. 12,
-            13
-            und 21 der Datenschutzgrundverordnung (DSGVO) über den Umgang mit Ihren personenbezogenen Daten bei der
-            Nutzung
-            unserer Website www.mitfahrverband.org</p>
+            Schutz Ihrer personenbezogenen Daten ist uns ein wichtiges Anliegen. Nachstehend informieren wir Sie gemäß Art. 12,
+            13 und 21 der Datenschutzgrundverordnung (DSGVO) über den Umgang mit Ihren personenbezogenen Daten bei der
+            Nutzung unserer Website www.mitfahrverband.org</p>
 
 
         <p>Personenbezogene Daten sind Einzelangaben über persönliche oder sachliche Verhältnisse einer bestimmten oder
