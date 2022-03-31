@@ -165,9 +165,16 @@ div.a {
     @apply box
     py-5
     flex gap-3
+    items-center
 }
 
-.step .actions input {
+.step input {
+    @apply text-center
+    border-b-2 border-b-primary
+    outline-none
+}
+
+.step .actions input[type="radio"] {
     @apply w-full h-20
     bg-white
     rounded-xl
@@ -195,11 +202,12 @@ div.a {
     @apply bg-primary text-white
 }
 
-#step2 .actions div:first-child {
-    @apply flex-grow
+#step2 .actions *:first-child {
+    @apply h-10
+    flex-grow
 }
 
-#step3 .actions div:first-child {
+#step3 .actions *:first-child {
     @apply flex-grow
 }
 

@@ -62,11 +62,11 @@ function renderStep1() {
         <h2><?= Label::get('platform.step1.title') ?></h2>
         <div class="actions">
             <div>
-                <input type="radio" name="step1" value="searching" checked>
+                <input type="radio" name="mode" value="searching" checked>
                 <p><?= Label::get('platform.step1.searching') ?></p>
             </div>
             <div>
-                <input type="radio" name="step1" value="driving">
+                <input type="radio" name="mode" value="driving">
                 <p><?= Label::get('platform.step1.driving') ?></p>
             </div>
         </div>
@@ -79,11 +79,21 @@ function renderStep2() {
     <div id="step2" class="step">
         <h2><?= Label::get('platform.step2.title') ?></h2>
         <div class="actions">
-            <div>
-            </div>
+            <input name="departureTime" type="datetime-local">
+            <input name="departureTimeOffset" type="hidden">
             <button>
                 <span><?= Label::get('platform.step2.now') ?></span>
             </button>
+            <script>
+              let [time, offset] = $('#step2 input');
+              let setNow = () => {
+                let now = new Date();
+                offset.value = -now.getTimezoneOffset();
+                time.value = new Date(now.getTime() - now.getTimezoneOffset() * 60000).toISOString().substring(0, 16);
+              };
+              $('#step2 button').onClick(setNow)
+              setNow();
+            </script>
         </div>
     </div>
     <?php
@@ -94,8 +104,7 @@ function renderStep3() {
     <div id="step3" class="step">
         <h2><?= Label::get('platform.step3.title') ?></h2>
         <div class="actions">
-            <div>
-            </div>
+            <input name="departureLocation">
             <button>
                 <span><?= Label::get('platform.step3.here') ?></span>
             </button>
