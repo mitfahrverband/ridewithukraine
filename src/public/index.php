@@ -1,27 +1,24 @@
 <?php
 use core\language\Label;
-use page\Menu;
 use page\Page;
 
 require_once "../core/Autoload.php";
 
 Page::render(function () {
-    renderIntro();
-    renderPlatform();
-    renderStep1();
-    renderStep2();
-    renderStep3();
-    renderStep4();
-    renderStep5();
     ?>
-    <div class="flex-1 col-span-2 space-y-3 flex flex-col">
-        <div class="a"><?= Label::get('landing.welcome') ?></div>
-        <div class="flex-1 relative flex justify-center items-center"><?php renderIframe(); ?></div>
+    <div class="col-span-1 space-y-10">
+        <?php
+        renderIntro();
+        //    renderPlatform();
+        renderSteps();
+        ?>
     </div>
-    <div class="hidden md:block md:space-y-3">
-        <div class="menu">
-            <div class="a"><?= Label::get('landing.menu') ?></div>
-            <?php Menu::render(); ?>
+    <?php
+
+    ?>
+    <div class="flex-1 col-span-2 flex flex-col mt-10">
+        <div class="flex-1 relative flex justify-center items-center">
+            <?php renderIframe(); ?>
         </div>
     </div>
     <?php
@@ -32,7 +29,7 @@ function renderIntro() {
     <div class="intro">
         <div>
             <h2><?= Label::get('intro.platform.text') ?></h2>
-            <a href="#platform"><?= Label::get('intro.platform.button') ?></a>
+            <a href="#steps"><?= Label::get('intro.platform.button') ?></a>
         </div>
         <div>
             <h2><?= Label::get('intro.print.text') ?></h2>
@@ -43,15 +40,20 @@ function renderIntro() {
     <?php
 }
 
-function renderPlatform() {
+function renderSteps() {
     ?>
-    <div id="platform">
-        <h2><?= Label::get('intro.platform.button') ?></h2>
-        <p><?= Label::get('platform.text') ?></p>
-        <div class="brands">
-            <p><?= Label::get('platform.brands.subText') ?></p>
+    <div id="steps">
+        <div>
+            <h1><?= Label::get('platform.steps.title') ?></h1>
+            <h2><?= Label::get('platform.steps.subTitle') ?></h2>
         </div>
-        <p><?= Label::get('platform.steps') ?></p>
+        <?php
+        renderStep1();
+        renderStep2();
+        renderStep3();
+        renderStep4();
+        renderStep5();
+        ?>
     </div>
     <?php
 }
@@ -59,14 +61,19 @@ function renderPlatform() {
 function renderStep1() {
     ?>
     <div id="step1" class="step">
-        <h2><?= Label::get('platform.step1.title') ?></h2>
+        <div class="title">
+            <h2><span>1</span>/5 — <?= Label::get('platform.step1.title') ?></h2>
+            <img src="/img/exporte_pikto_mitfahrenElement%2013.svg">
+        </div>
         <div class="actions">
             <div>
-                <input type="radio" name="mode" value="searching" checked>
+                <input type="radio" name="mode" value="searching" checked
+                       style="background-image: url('/img/exporte_pikto_mitfahrenElement 18.svg')">
                 <p><?= Label::get('platform.step1.searching') ?></p>
             </div>
             <div>
-                <input type="radio" name="mode" value="driving">
+                <input type="radio" name="mode" value="driving"
+                       style="background-image: url('/img/exporte_pikto_mitfahrenElement 15.svg')">
                 <p><?= Label::get('platform.step1.driving') ?></p>
             </div>
         </div>
@@ -77,12 +84,16 @@ function renderStep1() {
 function renderStep2() {
     ?>
     <div id="step2" class="step">
-        <h2><?= Label::get('platform.step2.title') ?></h2>
+        <div class="title">
+            <h2><span>2</span>/5 — <?= Label::get('platform.step2.title') ?></h2>
+            <img src="/img/exporte_pikto_mitfahrenElement%209.svg">
+        </div>
         <div class="actions">
             <input name="departureTime" type="datetime-local">
             <input name="departureTimeOffset" type="hidden">
             <button>
-                <span><?= Label::get('platform.step2.now') ?></span>
+                <p>🡣</p>
+                <?= Label::get('platform.step2.now') ?>
             </button>
             <script>
               let [time, offset] = $('#step2 input');
@@ -102,11 +113,15 @@ function renderStep2() {
 function renderStep3() {
     ?>
     <div id="step3" class="step">
-        <h2><?= Label::get('platform.step3.title') ?></h2>
+        <div class="title">
+            <h2><span>3</span>/5 — <?= Label::get('platform.step3.title') ?></h2>
+            <!--            <img src="/img/exporte_pikto_mitfahrenElement%209.svg">-->
+        </div>
         <div class="actions">
             <input name="departureLocation">
             <button>
-                <span><?= Label::get('platform.step3.here') ?></span>
+                <p>🡣</p>
+                <?= Label::get('platform.step3.here') ?>
             </button>
         </div>
     </div>

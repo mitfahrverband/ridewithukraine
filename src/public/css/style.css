@@ -24,12 +24,6 @@ body {
     flex-direction: column;
 }
 
-div.a {
-    background-color: #2d71b7;
-    color: white;
-    @apply pl-1;
-}
-
 .header-top, .header-bottom {
     color: white;
     line-height: 1.2em;
@@ -47,43 +41,51 @@ div.a {
     @apply
     h-16 z-10
     flex items-end
-    bg-secondary shadow-md
-    sticky -top-4
+    bg-secondary text-black shadow-md
 }
 
 .header-top, .header-bottom span {
     @apply p-3;
 }
 
-.logo {
+.header-logo {
     @apply h-24 absolute top-14 right-0 pointer-events-none z-20;
-}
-
-.menuButton {
-    @apply w-12
-    flex items-center justify-center
-    cursor-pointer;
-}
-
-.menu {
-    min-width: 200px;
-    background: white;
-    color: black;
-    @apply shadow-md;
-}
-
-.menu p {
-    @apply p-3 hover:bg-primary hover:text-white
 }
 
 .main {
     @apply
     flex-1
     w-full max-w-screen-xl mx-auto
-    flex flex-col space-y-3
-    md:grid gap-3 md:space-y-0
+    flex flex-col
+    md:grid md:gap-10 md:space-y-0 grid-cols-3
     bg-secondary
-    space-y-16
+    /*space-y-16*/
+}
+
+.footer {
+    @apply font-sans
+    mt-8
+}
+
+.footer .menu {
+    @apply flex
+    w-full max-w-screen-xl mx-auto
+}
+
+.footer .menu div {
+    min-width: 33%;
+    @apply bg-secondary
+    flex flex-col
+    p-8
+    space-y-3
+}
+
+.footer .logo {
+    @apply flex justify-end items-center
+}
+
+.footer .bar {
+    @apply bg-mitfahrverband h-10
 }
 
 @layer components {
@@ -91,6 +93,11 @@ div.a {
         @apply bg-white
         p-3
         rounded-lg
+    }
+
+    .box-primary {
+        @apply bg-primary text-white
+        px-3 py-5
     }
 
     .btn-primary {
@@ -150,15 +157,39 @@ div.a {
     @apply text-black text-base
 }
 
-.step {
-    @apply bg-primary
-    px-3 pt-8 pb-5
+
+#steps {
+    @apply space-y-10
 }
 
-.step h2 {
-    @apply text-white
-    mb-2
-    ml-1
+#steps > div:first-child {
+    @apply box-primary
+
+}
+
+#steps > div:first-child h1 {
+    @apply text-4xl
+    mb-3
+}
+
+.step {
+    @apply box-primary
+}
+
+.step .title {
+    @apply flex
+    items-baseline
+    mx-1 mb-2
+}
+
+.step .title h2 span {
+    @apply text-4xl
+}
+
+.step .title img {
+    @apply h-9
+    ml-auto
+    self-end
 }
 
 .step .actions {
@@ -169,17 +200,19 @@ div.a {
 }
 
 .step input {
-    @apply text-center
+    @apply text-black text-center
     border-b-2 border-b-primary
     outline-none
 }
 
 .step .actions input[type="radio"] {
     @apply w-full h-20
-    bg-white
+    bg-primary
     rounded-xl
     shadow-md
     appearance-none cursor-pointer
+    bg-contain bg-center bg-no-repeat bg-origin-content
+    p-3
 }
 
 .step .actions button {
@@ -187,6 +220,7 @@ div.a {
     text-white bg-primary
     rounded-xl
     shadow-md
+    leading-none
 }
 
 .step .actions input:hover, .step .actions button:hover {
@@ -199,18 +233,18 @@ div.a {
 }
 
 #step1 .actions input:checked {
-    @apply bg-primary text-white
+    @apply border-4 border-dotted border-white
 }
 
-#step2 .actions *:first-child {
+#step2 .actions > *:first-child {
     @apply h-10
     flex-grow
 }
 
-#step3 .actions *:first-child {
+#step3 .actions > *:first-child {
     @apply flex-grow
 }
 
-#step5 .actions *:first-child {
+#step5 .actions > *:first-child {
     @apply flex-grow
 }

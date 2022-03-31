@@ -3,37 +3,41 @@ namespace core\language;
 
 class Language {
 
-    static array $languages = [
-        'de',
-        'en'
-    ];
-
-    static string $preferred;
-
-    static function get(): string|null {
-        return self::fromAttribute() ?? self::$preferred ?? self::fromHeader() ?? self::$languages[0] ?? null;
-    }
+    private static string $preferred;
 
     static function set(string $lang) {
-        if (self::isValid($lang)) self::$preferred = $lang;
+        if (self::isValid($lang)) {
+            setcookie('lang', $lang, strtotime('+1 year'));
+            self::$preferred = $lang;
+        }
     }
 
-    static function fromAttribute(): string|null {
+    static function get(): string|null {
+        return self::getAttribute() ?? self::$preferred ?? self::getCookie() ?? self::getHeader() ?? null;
+    }
+
+    static function getAttribute(): string|null {
         $lang = $_GET['lang'] ?? null;
         if (!$lang || !self::isValid($lang)) return null;
         return $lang;
     }
 
-    static function fromHeader(): string|null {
+    static function getCookie(): string|null {
+        $lang = $_COOKIE['lang'] ?? null;
+        if (self::isValid($lang)) return $lang;
+        return null;
+    }
+
+    static function getHeader(): string|null {
         $lang = $_SERVER['HTTP_ACCEPT_LANGUAGE'] ?? null;
         if (!$lang || !is_string($lang)) return null;
         $lang = substr($lang, 0, 2);
-        if (!self::isValid($lang)) return null;
-        return $lang;
+        if (self::isValid($lang)) return $lang;
+        return null;
     }
 
     private static function isValid(mixed $lang): bool {
-        return is_string($lang) && in_array($lang, self::$languages ?? [], true);
+        return $lang && is_string($lang) && strlen($lang) === 2;
     }
 
 }
