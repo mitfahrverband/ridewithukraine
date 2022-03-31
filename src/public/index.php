@@ -8,6 +8,11 @@ require_once "../core/Autoload.php";
 Page::render(function () {
     renderIntro();
     renderPlatform();
+    renderStep1();
+    renderStep2();
+    renderStep3();
+    renderStep4();
+    renderStep5();
     ?>
     <div class="flex-1 col-span-2 space-y-3 flex flex-col">
         <div class="a"><?= Label::get('landing.welcome') ?></div>
@@ -40,13 +45,86 @@ function renderIntro() {
 
 function renderPlatform() {
     ?>
-    <div id="platform" class="platform">
+    <div id="platform">
         <h2><?= Label::get('intro.platform.button') ?></h2>
         <p><?= Label::get('platform.text') ?></p>
         <div class="brands">
             <p><?= Label::get('platform.brands.subText') ?></p>
         </div>
         <p><?= Label::get('platform.steps') ?></p>
+    </div>
+    <?php
+}
+
+function renderStep1() {
+    ?>
+    <div id="step1" class="step">
+        <h2><?= Label::get('platform.step1.title') ?></h2>
+        <div class="actions">
+            <div>
+                <input type="radio" name="step1" value="searching" checked>
+                <p><?= Label::get('platform.step1.searching') ?></p>
+            </div>
+            <div>
+                <input type="radio" name="step1" value="driving">
+                <p><?= Label::get('platform.step1.driving') ?></p>
+            </div>
+        </div>
+    </div>
+    <?php
+}
+
+function renderStep2() {
+    ?>
+    <div id="step2" class="step">
+        <h2><?= Label::get('platform.step2.title') ?></h2>
+        <div class="actions">
+            <div>
+            </div>
+            <button>
+                <span><?= Label::get('platform.step2.now') ?></span>
+            </button>
+        </div>
+    </div>
+    <?php
+}
+
+function renderStep3() {
+    ?>
+    <div id="step3" class="step">
+        <h2><?= Label::get('platform.step3.title') ?></h2>
+        <div class="actions">
+            <div>
+            </div>
+            <button>
+                <span><?= Label::get('platform.step3.here') ?></span>
+            </button>
+        </div>
+    </div>
+    <?php
+}
+
+function renderStep4() {
+    ?>
+    <div id="step4" class="step">
+        <h2><?= Label::get('platform.step4.title') ?></h2>
+        <div class="actions">
+            <div>
+            </div>
+        </div>
+    </div>
+    <?php
+}
+
+function renderStep5() {
+    ?>
+    <div id="step5" class="step">
+        <h2><?= Label::get('platform.step5.title') ?></h2>
+        <div class="actions">
+            <button>
+                <span><?= Label::get('platform.step5.send') ?></span>
+            </button>
+        </div>
     </div>
     <?php
 }

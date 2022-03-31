@@ -18,7 +18,7 @@ html, body {
 }
 
 body {
-    @apply bg-background;
+    @apply bg-background text-xl;
     font-family: 'DINAlternateBold', serif;
     display: flex;
     flex-direction: column;
@@ -32,7 +32,6 @@ div.a {
 
 .header-top, .header-bottom {
     color: white;
-    @apply text-xl;
     line-height: 1.2em;
 }
 
@@ -88,10 +87,16 @@ div.a {
 }
 
 @layer components {
-    .btn-primary {
-        @apply text-primary bg-white text-xl
-        px-5 py-2
+    .box {
+        @apply bg-white
+        p-3
         rounded-lg
+    }
+
+    .btn-primary {
+        @apply box
+        text-primary
+        px-5 py-2
         inline-block
     }
 }
@@ -109,7 +114,7 @@ div.a {
 }
 
 .intro h2 {
-    @apply text-white text-xl
+    @apply text-white
 }
 
 .intro a {
@@ -117,31 +122,87 @@ div.a {
 }
 
 .intro > p {
-    @apply text-secondary text-xl
+    @apply text-secondary
 }
 
 
 /* Platform */
-.platform {
+#platform {
     @apply bg-primary
     px-3 py-5
 }
 
-.platform h2 {
+#platform h2 {
     @apply btn-primary
     mb-3
 }
 
-.platform p {
-    @apply text-white text-xl
+#platform p {
+    @apply text-white
 }
 
-.platform .brands {
-    @apply bg-white
-    rounded-lg
+#platform .brands {
+    @apply box
     my-3
 }
 
-.platform .brands p {
-    @apply btn-primary text-black text-base
+#platform .brands p {
+    @apply text-black text-base
+}
+
+.step {
+    @apply bg-primary
+    px-3 pt-8 pb-5
+}
+
+.step h2 {
+    @apply text-white
+    mb-2
+    ml-1
+}
+
+.step .actions {
+    @apply box
+    py-5
+    flex gap-3
+}
+
+.step .actions input {
+    @apply w-full h-20
+    bg-white
+    rounded-xl
+    shadow-md
+    appearance-none cursor-pointer
+}
+
+.step .actions button {
+    @apply h-20 w-20
+    text-white bg-primary
+    rounded-xl
+    shadow-md
+}
+
+.step .actions input:hover, .step .actions button:hover {
+    @apply shadow-blue-400
+}
+
+#step1 .actions div {
+    @apply w-1/2
+    text-center text-primary
+}
+
+#step1 .actions input:checked {
+    @apply bg-primary text-white
+}
+
+#step2 .actions div:first-child {
+    @apply flex-grow
+}
+
+#step3 .actions div:first-child {
+    @apply flex-grow
+}
+
+#step5 .actions *:first-child {
+    @apply flex-grow
 }
