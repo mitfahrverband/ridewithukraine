@@ -89,7 +89,7 @@ function renderStep2() {
             <input name="departureTime" type="datetime-local">
             <input name="departureTimeOffset" type="hidden">
             <button>
-                <p>🡣</p>
+                <img src="/img/exporte_pikto_mitfahrenElement%207.svg" class="rotate-90">
                 <?= Label::get('platform.step2.now') ?>
             </button>
             <script>
@@ -117,7 +117,7 @@ function renderStep3() {
         <div class="actions">
             <input name="departureLocation" data-autocomplete>
             <button>
-                <p>🡣</p>
+                <img src="/img/exporte_pikto_mitfahrenElement%207.svg" class="rotate-90">
                 <?= Label::get('platform.step3.here') ?>
             </button>
         </div>

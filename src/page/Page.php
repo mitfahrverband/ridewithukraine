@@ -4,7 +4,7 @@ namespace page;
 use core\html\document\Document;
 use core\language\Label;
 
-Document::addIcon('image/svg+xml', '/img/auto_frontElement4.svg');
+Document::addIcon('image/svg+xml', '/img/exporte_pikto_mitfahren_v2Element 1.svg');
 Document::addStylesheet('css/style.min.css');
 Document::addScriptFile('js/script.js');
 
@@ -23,7 +23,7 @@ class Page extends Document {
             <div class="header-bottom">
                 <span class="mr-auto"><a href="/"><?= Label::get('headerBottom') ?></a></span>
             </div>
-            <img class="header-logo" src="/img/auto_frontElement4.svg">
+            <img class="header-logo" src="/img/exporte_pikto_mitfahren_v2Element 1.svg">
             <div class="main">
                 <?php
                 $renderFunction();

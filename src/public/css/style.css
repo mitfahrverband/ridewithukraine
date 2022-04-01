@@ -49,7 +49,7 @@ body {
 }
 
 .header-logo {
-    @apply h-24 absolute top-14 right-0 pointer-events-none z-20;
+    @apply h-24 absolute top-14 -right-9 pointer-events-none z-20;
 }
 
 .main {
@@ -226,6 +226,10 @@ body {
     flex-shrink-0
 }
 
+.step .actions button img {
+    @apply h-6 w-6 mx-auto
+}
+
 .step .actions input:hover, .step .actions button:hover {
     @apply shadow-blue-400
 }
@@ -256,10 +260,9 @@ body {
     @apply flex-grow
 }
 
-#step5 .actions img {
-    @apply h-10 w-10 mx-auto
+#step5 button img {
+    @apply h-10 w-10
 }
-
 
 /* Components */
 input[data-autocomplete] + div {
