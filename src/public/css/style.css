@@ -197,12 +197,14 @@ body {
     py-5
     flex gap-3
     items-center
+    relative
 }
 
 .step input {
     @apply text-black text-center
     border-b-2 border-b-primary
     outline-none
+    min-w-0
 }
 
 .step .actions input[type="radio"] {
@@ -221,6 +223,7 @@ body {
     rounded-xl
     shadow-md
     leading-none
+    flex-shrink-0
 }
 
 .step .actions input:hover, .step .actions button:hover {
@@ -245,6 +248,34 @@ body {
     @apply flex-grow
 }
 
+#step4 .actions > *:first-child {
+    @apply flex-grow
+}
+
 #step5 .actions > *:first-child {
     @apply flex-grow
+}
+
+#step5 .actions img {
+    @apply h-10 w-10 mx-auto
+}
+
+
+/* Components */
+input[data-autocomplete] + div {
+    top: 90%;
+    @apply absolute left-0 right-0
+    text-black bg-white
+    shadow-lg shadow-black
+    z-40
+    rounded-b-lg
+}
+
+input[data-autocomplete] + div p {
+    @apply px-3 py-2
+    cursor-pointer
+}
+
+input[data-autocomplete] + div p:hover {
+    @apply text-white bg-primary
 }

@@ -4,18 +4,15 @@ use page\Page;
 
 require_once "../core/Autoload.php";
 
+Page::addScriptFile('/js/autocomplete.js', defer: true);
 Page::render(function () {
     ?>
     <div class="col-span-1 space-y-10">
         <?php
         renderIntro();
-        //    renderPlatform();
         renderSteps();
         ?>
     </div>
-    <?php
-
-    ?>
     <div class="flex-1 col-span-2 flex flex-col mt-10">
         <div class="flex-1 relative flex justify-center items-center">
             <?php renderIframe(); ?>
@@ -102,7 +99,7 @@ function renderStep2() {
                 offset.value = -now.getTimezoneOffset();
                 time.value = new Date(now.getTime() - now.getTimezoneOffset() * 60000).toISOString().substring(0, 16);
               };
-              $('#step2 button').onClick(setNow)
+              $('#step2 button').onclick = setNow;
               setNow();
             </script>
         </div>
@@ -115,10 +112,10 @@ function renderStep3() {
     <div id="step3" class="step">
         <div class="title">
             <h2><span>3</span>/5 — <?= Label::get('platform.step3.title') ?></h2>
-            <!--            <img src="/img/exporte_pikto_mitfahrenElement%209.svg">-->
+            <img src="/img/exporte_pikto_abfahrt_locationElement%203.svg">
         </div>
         <div class="actions">
-            <input name="departureLocation">
+            <input name="departureLocation" data-autocomplete>
             <button>
                 <p>🡣</p>
                 <?= Label::get('platform.step3.here') ?>
@@ -131,10 +128,12 @@ function renderStep3() {
 function renderStep4() {
     ?>
     <div id="step4" class="step">
-        <h2><?= Label::get('platform.step4.title') ?></h2>
+        <div class="title">
+            <h2><span>4</span>/5 — <?= Label::get('platform.step4.title') ?></h2>
+            <img src="/img/exporte_pikto_zielElement%202.svg">
+        </div>
         <div class="actions">
-            <div>
-            </div>
+            <input name="destination" data-autocomplete>
         </div>
     </div>
     <?php
@@ -143,10 +142,13 @@ function renderStep4() {
 function renderStep5() {
     ?>
     <div id="step5" class="step">
-        <h2><?= Label::get('platform.step5.title') ?></h2>
+        <div class="title">
+            <h2><span>5</span>/5 — <?= Label::get('platform.step5.title') ?></h2>
+        </div>
         <div class="actions">
             <button>
-                <span><?= Label::get('platform.step5.send') ?></span>
+                <img src="/img/exporte_pikto_mitfahrenElement%207.svg">
+                <?= Label::get('platform.step5.send') ?>
             </button>
         </div>
     </div>
@@ -167,11 +169,11 @@ function renderIframe() {
         </svg>
     </div>
     <script>
-      $('.results').onLoad((e) => {
+      $('.results').onload = (e) => {
         let iframe = e.target;
         iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
-      });
-      $().onLoad(() => $('.loading').classList.add('hidden'));
+      };
+      $().onload = () => $('.loading').classList.add('hidden');
     </script>
     <?php
 }
