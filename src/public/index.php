@@ -6,15 +6,26 @@ require_once "../core/Autoload.php";
 
 Page::addScriptFile('/js/autocomplete.js', defer: true);
 Page::addScriptFile('/js/createTrip.js', defer: true);
+
 Page::render(function () {
     ?>
-    <div class="col-span-1 space-y-10">
-        <?php
-        renderIntro();
-        renderSteps();
-        ?>
+    <div class="col-span-1 space-y-10 contents md:block">
+        <div class="order-1 space-y-10">
+            <?php
+            renderIntro();
+            renderSteps();
+            ?>
+        </div>
+        <div class="order-3 space-y-10">
+            <?php
+            renderPlatforms();
+            renderPrintedCards();
+            renderSafety();
+            renderSupporter();
+            ?>
+        </div>
     </div>
-    <div class="flex-1 col-span-2 flex flex-col mt-10">
+    <div class="order-2 flex-1 col-span-2 flex flex-col mt-10">
         <div class="flex-1 relative flex justify-center items-center">
             <?php renderIframe(); ?>
         </div>
@@ -28,15 +39,15 @@ function renderIntro() {
         <div style="background: url('/img/IMG_8802_x.webp'); background-size: cover">
             <div>
                 <h2><?= Label::get('intro.platform.text') ?></h2>
-                <a href="#steps"><?= Label::get('intro.platform.button') ?></a>
+                <a class="btn-white" href="#steps"><?= Label::get('intro.platform.button') ?></a>
             </div>
             <div>
                 <h2><?= Label::get('intro.print.text') ?></h2>
-                <a href="/print.php"><?= Label::get('intro.print.button') ?></a>
+                <a href="#printed"><?= Label::get('intro.print.button') ?></a>
             </div>
             <div>
                 <h2><?= Label::get('intro.safety.text') ?></h2>
-                <a href="/print.php"><?= Label::get('intro.safety.button') ?></a>
+                <a href="#safety"><?= Label::get('intro.safety.button') ?></a>
             </div>
         </div>
         <p><?= Label::get('intro.subText') ?></p>
@@ -47,7 +58,7 @@ function renderIntro() {
 function renderSteps() {
     ?>
     <form id="steps">
-        <div>
+        <div class="heading">
             <h1><?= Label::get('platform.steps.title') ?></h1>
             <h2><?= Label::get('platform.steps.subTitle') ?></h2>
         </div>
@@ -250,6 +261,101 @@ function renderIframe() {
       };
       $()[0].onload = () => $('.loading')[0].classList.add('hidden');
     </script>
+    <?php
+}
+
+function renderPlatforms() {
+    ?>
+    <div class="box py-10 space-y-10 mx-3">
+        <p><?= Label::get('platforms.offering') ?></p>
+        <div class="flex">
+            <img src="/img/logos.webp" class="mx-auto">
+        </div>
+        <a class="btn-white"><?= Label::get('platforms.contact') ?></a>
+        <p><?= Label::get('platforms.subText') ?></p>
+    </div>
+    <?php
+}
+
+function renderPrintedCards() {
+    ?>
+    <div id="printed">
+        <div class="heading">
+            <h1><?= Label::get('printed.title') ?></h1>
+            <h2><?= Label::get('printed.subTitle') ?></h2>
+        </div>
+        <div class="box space-y-10 mx-3 mt-3">
+            <p><?= Label::get('printed.hanger') ?></p>
+            <div class="flex">
+                <img src="/img/hanger.webp" class="mx-auto">
+            </div>
+            <div class="text-primary underline pb-8 ml-8">
+                <a class="block"><?= Label::get('printed.download') ?></a>
+                <a class="block"><?= Label::get('printed.order') ?></a>
+            </div>
+        </div>
+        <div class="box space-y-10 mx-3 mt-3">
+            <p><?= Label::get('printed.postcard') ?></p>
+            <div class="flex">
+                <img src="/img/postcard.webp" class="mx-auto">
+            </div>
+            <div class="text-primary underline pb-8 ml-8">
+                <a class="block"><?= Label::get('printed.download') ?></a>
+                <a class="block"><?= Label::get('printed.order') ?></a>
+            </div>
+        </div>
+    </div>
+    <?php
+}
+
+function renderSafety() {
+    Page::addStyle('
+    #safety li {
+        padding-left: 1.25em;
+        text-indent: -1.25em;
+    }
+
+    #safety li::before {
+        content: "—";
+        margin-right: 0.25rem;
+    }
+    ');
+    ?>
+    <div id="safety">
+        <div class="heading">
+            <h1><?= Label::get('safety.title') ?></h1>
+            <h2><?= Label::get('safety.subTitle') ?></h2>
+        </div>
+        <div class="box space-y-6 m-3 py-5">
+            <p class="text-primary"><?= Label::get('safety.passenger') ?></p>
+            <ul>
+                <li><?= Label::get('safety.passenger.1') ?></li>
+                <li><?= Label::get('safety.passenger.2') ?></li>
+                <li><?= Label::get('safety.passenger.3') ?></li>
+                <li><?= Label::get('safety.passenger.4') ?></li>
+            </ul>
+            <p class="text-primary"><?= Label::get('safety.driver') ?></p>
+            <ul>
+                <li><?= Label::get('safety.driver.1') ?></li>
+                <li><?= Label::get('safety.driver.2') ?></li>
+                <li><?= Label::get('safety.driver.3') ?></li>
+            </ul>
+        </div>
+    </div>
+    <?php
+}
+
+function renderSupporter() {
+    ?>
+    <div id="supporter">
+        <div class="box space-y-6 m-3 py-5">
+            <p><?= Label::get('supporter.title') ?></p>
+            <div class="flex">
+                <img src="/img/sportguide.webp" class="mx-auto">
+            </div>
+            <a class="btn-white" href="https://sportguide.rocks"><?= Label::get('platforms.contact') ?></a>
+        </div>
+    </div>
     <?php
 }
 

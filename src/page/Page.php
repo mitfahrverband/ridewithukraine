@@ -34,7 +34,12 @@ class Page extends Document {
                     <?php Menu::render(); ?>
                 </div>
                 <div class="logo">
-                    <img src="/img/Mitfahrverband_eV_logo_lang.png" class="h-20 mr-12">
+                    <div class="text-base ml-3 md:ml-12">
+                        <p>Initiated and powered by</p>
+                    </div>
+                    <a href="https://mitfahrverband.org">
+                        <img src="/img/Mitfahrverband_eV_logo_lang.png" class="h-20 mr-12">
+                    </a>
                 </div>
                 <div class="bar"></div>
             </div>
