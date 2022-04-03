@@ -54,7 +54,7 @@ body {
 }
 
 #lang-btn {
-    @apply h-12 p-3
+    @apply h-12 p-3 cursor-pointer
 }
 
 #lang-menu {
@@ -270,6 +270,24 @@ body {
 
 #step4 .actions > *:first-child {
     @apply flex-grow
+}
+
+#step5 #create-form {
+    @apply space-y-3 mb-3
+}
+
+#step5 #create-form input {
+    @apply bg-white rounded-lg text-left
+    w-20
+    pl-3 py-1
+}
+
+#step5 #create-form p {
+    @apply text-base
+}
+
+#step5 #create-form > input {
+    @apply block w-full
 }
 
 #step5 .actions > *:first-child {

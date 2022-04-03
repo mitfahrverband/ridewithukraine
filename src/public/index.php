@@ -80,6 +80,13 @@ function renderStep1() {
                 <p><?= Label::get('platform.step1.driving') ?></p>
             </div>
         </div>
+        <script>
+          $("input[name='mode']").onClick((e) => {
+            let $form = $("#create-form");
+            if (e.target.value === 'searching') $form.addClass('hidden');
+            else $form.removeClass('hidden');
+          });
+        </script>
     </div>
     <?php
 }
@@ -150,6 +157,19 @@ function renderStep5() {
     <div id="step5" class="step">
         <div class="title">
             <h2><span>5</span>/5 — <?= Label::get('platform.step5.title') ?></h2>
+        </div>
+        <div id="create-form" class="hidden">
+            <div>
+                <input name="seats" type="number" min="1" value="1">
+                <span><?= Label::get('platform.step5.seats') ?></span>
+            </div>
+            <div>
+                <input name="cost" type="number" min="0" value="0.00">
+                <span><?= Label::get('platform.step5.costs') ?></span>
+                <p>(<?= Label::get('platform.step5.costsInfo') ?>)</p>
+            </div>
+            <input name="phone" placeholder="<?= Label::get('platform.step5.phone') ?>">
+            <input name="mail" type="email" placeholder="<?= Label::get('platform.step5.mail') ?>">
         </div>
         <div class="actions">
             <button>

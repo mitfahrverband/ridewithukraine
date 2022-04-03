@@ -7,7 +7,7 @@ class Label {
     static $defaultKey = 'de';
 
     static function addFile(string $path) {
-        $values = @parse_ini_file($path) ?: [];
+        $values = @parse_ini_file($path, scanner_mode: INI_SCANNER_RAW) ?: [];
 
         $language = Language::get();
         if ($language) {
