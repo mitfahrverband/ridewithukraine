@@ -15,10 +15,11 @@ html {
 
 html, body {
     min-height: 100vh;
+    overflow-x: hidden;
 }
 
 body {
-    @apply bg-background text-xl;
+    @apply relative bg-background text-xl;
     font-family: 'DINAlternateBold', serif;
     display: flex;
     flex-direction: column;
@@ -52,14 +53,40 @@ body {
     @apply h-24 absolute top-14 -right-9 pointer-events-none z-20;
 }
 
+#lang-btn {
+    @apply h-12 p-3
+}
+
+#lang-menu {
+    background: rgba(0, 0, 0, 0.8);
+    @apply fixed top-0 bottom-0 right-0 left-0
+    z-50
+    overscroll-contain
+}
+
+#lang-menu ul {
+    @apply fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2
+    p-3
+    bg-white
+    w-fit
+}
+
+#lang-menu li {
+    @apply p-3 px-10
+}
+
+#lang-menu li:hover {
+    @apply bg-primary text-white cursor-pointer
+}
+
 .main {
     @apply
     flex-1
     w-full max-w-screen-xl mx-auto
     flex flex-col
     md:grid md:gap-10 md:space-y-0 grid-cols-3
+    md:shadow-lg shadow-primary
     bg-secondary
-    /*space-y-16*/
 }
 
 .footer {
@@ -110,12 +137,15 @@ body {
 
 /* Index */
 .intro {
-    @apply px-3 py-16
-    bg-gray-600
-    space-y-5
 }
 
 .intro > div {
+    @apply flex flex-col justify-evenly
+    h-96
+    px-3
+}
+
+.intro > div div {
     max-width: 80%;
     @apply space-y-4
 }
@@ -124,39 +154,19 @@ body {
     @apply text-white
 }
 
-.intro a {
+.intro div div:first-child a {
     @apply btn-primary
+}
+
+.intro div div:first-child ~ * a {
+    @apply text-white underline
 }
 
 .intro > p {
-    @apply text-secondary
+    @apply text-black
+    px-4
+    my-6
 }
-
-
-/* Platform */
-#platform {
-    @apply bg-primary
-    px-3 py-5
-}
-
-#platform h2 {
-    @apply btn-primary
-    mb-3
-}
-
-#platform p {
-    @apply text-white
-}
-
-#platform .brands {
-    @apply box
-    my-3
-}
-
-#platform .brands p {
-    @apply text-black text-base
-}
-
 
 #steps {
     @apply space-y-10
@@ -205,6 +215,12 @@ body {
     border-b-2 border-b-primary
     outline-none
     min-w-0
+}
+
+.step input[type="datetime-local"] {
+    padding-top: 10px;
+    @apply block
+    bg-white;
 }
 
 .step .actions input[type="radio"] {
@@ -269,9 +285,9 @@ input[data-autocomplete] + div {
     top: 90%;
     @apply absolute left-0 right-0
     text-black bg-white
-    shadow-lg shadow-black
     z-40
-    rounded-b-lg
+    rounded-b-lg overflow-hidden
+    border-4 border-white
 }
 
 input[data-autocomplete] + div p {

@@ -4,11 +4,11 @@ namespace page;
 use core\html\document\Document;
 use core\language\Label;
 
+Label::addFile(__DIR__ . '/../labels/labels_en.properties');
+
 Document::addIcon('image/svg+xml', '/img/exporte_pikto_mitfahren_v2Element 1.svg');
 Document::addStylesheet('css/style.min.css');
 Document::addScriptFile('js/script.js');
-
-Label::addFile(__DIR__ . '/../labels/labels_en.properties');
 
 class Page extends Document {
 
@@ -22,12 +22,12 @@ class Page extends Document {
             </div>
             <div class="header-bottom">
                 <span class="mr-auto"><a href="/"><?= Label::get('headerBottom') ?></a></span>
+                <img id="lang-btn" src="/img/exporte_globusElement%205.svg">
             </div>
+            <?php LanguageMenu::render(); ?>
             <img class="header-logo" src="/img/exporte_pikto_mitfahren_v2Element 1.svg">
             <div class="main">
-                <?php
-                $renderFunction();
-                ?>
+                <?php $renderFunction(); ?>
             </div>
             <div class="footer">
                 <div class="menu">

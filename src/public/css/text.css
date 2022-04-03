@@ -1,3 +1,7 @@
+.main {
+    background: white;
+}
+
 h1 {
     font-size: revert;
     line-height: revert;

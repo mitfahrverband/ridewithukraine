@@ -7,13 +7,15 @@ class Language {
 
     static function set(string $lang) {
         if (self::isValid($lang)) {
-            setcookie('lang', $lang, strtotime('+1 year'));
+            self::setCookie($lang);
             self::$preferred = $lang;
         }
     }
 
     static function get(): string|null {
-        return self::getAttribute() ?? self::$preferred ?? self::getCookie() ?? self::getHeader() ?? null;
+        $attribute = self::getAttribute();
+        if ($attribute) self::setCookie($attribute);
+        return $attribute ?? self::$preferred ?? self::getCookie() ?? self::getHeader() ?? null;
     }
 
     static function getAttribute(): string|null {
@@ -26,6 +28,12 @@ class Language {
         $lang = $_COOKIE['lang'] ?? null;
         if (self::isValid($lang)) return $lang;
         return null;
+    }
+
+    static function setCookie(string $lang) {
+        if (self::isValid($lang)) {
+            setcookie('lang', $lang, strtotime('+1 year'));
+        }
     }
 
     static function getHeader(): string|null {

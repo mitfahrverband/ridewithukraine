@@ -4,9 +4,17 @@ let $ = (selector) => {
     result = document.querySelectorAll(selector);
     if (result.length === 0) return null;
   }
-  if (result.length === 1) {
-    result[0].forEach = (cb) => cb(result[0]);
-    return result[0];
-  }
+  result.toggleClass = className => {
+    result.forEach(r => r.classList.toggle(className));
+  };
+  result.addClass = className => {
+    result.forEach(r => r.classList.add(className));
+  };
+  result.removeClass = className => {
+    result.forEach(r => r.classList.remove(className));
+  };
+  result.onClick = cb => {
+    result.forEach(r => r.onclick = cb);
+  };
   return result;
 }

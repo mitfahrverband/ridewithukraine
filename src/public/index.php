@@ -24,13 +24,19 @@ Page::render(function () {
 function renderIntro() {
     ?>
     <div class="intro">
-        <div>
-            <h2><?= Label::get('intro.platform.text') ?></h2>
-            <a href="#steps"><?= Label::get('intro.platform.button') ?></a>
-        </div>
-        <div>
-            <h2><?= Label::get('intro.print.text') ?></h2>
-            <a><?= Label::get('intro.print.button') ?></a>
+        <div style="background: url('/img/IMG_8802_x.webp'); background-size: cover">
+            <div>
+                <h2><?= Label::get('intro.platform.text') ?></h2>
+                <a href="#steps"><?= Label::get('intro.platform.button') ?></a>
+            </div>
+            <div>
+                <h2><?= Label::get('intro.print.text') ?></h2>
+                <a href="/print.php"><?= Label::get('intro.print.button') ?></a>
+            </div>
+            <div>
+                <h2><?= Label::get('intro.safety.text') ?></h2>
+                <a href="/print.php"><?= Label::get('intro.safety.button') ?></a>
+            </div>
         </div>
         <p><?= Label::get('intro.subText') ?></p>
     </div>
@@ -60,7 +66,7 @@ function renderStep1() {
     <div id="step1" class="step">
         <div class="title">
             <h2><span>1</span>/5 — <?= Label::get('platform.step1.title') ?></h2>
-            <img src="/img/exporte_pikto_mitfahrenElement%2013.svg">
+            <img src="/img/exporte_pikto_mitfahren_offer_findElement%204.svg">
         </div>
         <div class="actions">
             <div>
@@ -99,7 +105,7 @@ function renderStep2() {
                 offset.value = -now.getTimezoneOffset();
                 time.value = new Date(now.getTime() - now.getTimezoneOffset() * 60000).toISOString().substring(0, 16);
               };
-              $('#step2 button').onclick = setNow;
+              $('#step2 button').onClick(setNow);
               setNow();
             </script>
         </div>
@@ -169,11 +175,11 @@ function renderIframe() {
         </svg>
     </div>
     <script>
-      $('.results').onload = (e) => {
+      $('.results')[0].onload = (e) => {
         let iframe = e.target;
         iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
       };
-      $().onload = () => $('.loading').classList.add('hidden');
+      $()[0].onload = () => $('.loading')[0].classList.add('hidden');
     </script>
     <?php
 }
