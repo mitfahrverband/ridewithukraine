@@ -7,14 +7,15 @@ class Label {
     static $defaultKey = 'de';
 
     static function addFile(string $path) {
-        $values = @parse_ini_file($path, scanner_mode: INI_SCANNER_RAW) ?: [];
+        $readIni = fn($path) => @parse_ini_file($path, scanner_mode: INI_SCANNER_RAW) ?: [];
+        $values = $readIni($path);
 
         $language = Language::get();
         if ($language) {
             $extensionPos = strrpos($path, '.');
             $nameEndPos = ($path[$extensionPos - 3] === '_') ? $extensionPos - 3 : $extensionPos;
             $languagePath = substr($path, 0, $nameEndPos) . "_$language" . substr($path, $extensionPos);
-            $values = (@parse_ini_file($languagePath) ?: []) + $values;
+            $values = $readIni($languagePath) + $values;
         }
 
         self::add($values);

@@ -21,18 +21,18 @@ class Language {
     static function getAttribute(): string|null {
         $lang = $_GET['lang'] ?? null;
         if (!$lang || !self::isValid($lang)) return null;
-        return $lang;
+        return strtolower($lang);
     }
 
     static function getCookie(): string|null {
         $lang = $_COOKIE['lang'] ?? null;
-        if (self::isValid($lang)) return $lang;
+        if (self::isValid($lang)) return strtolower($lang);
         return null;
     }
 
     static function setCookie(string $lang) {
         if (self::isValid($lang)) {
-            setcookie('lang', $lang, strtotime('+1 year'));
+            setcookie('lang', strtolower($lang), strtotime('+1 year'));
         }
     }
 
@@ -40,7 +40,7 @@ class Language {
         $lang = $_SERVER['HTTP_ACCEPT_LANGUAGE'] ?? null;
         if (!$lang || !is_string($lang)) return null;
         $lang = substr($lang, 0, 2);
-        if (self::isValid($lang)) return $lang;
+        if (self::isValid($lang)) return strtolower($lang);
         return null;
     }
 
