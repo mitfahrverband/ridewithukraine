@@ -61,14 +61,10 @@ body {
     background: rgba(0, 0, 0, 0.8);
     @apply fixed top-0 bottom-0 right-0 left-0
     z-50
-    overscroll-contain
 }
 
 #lang-menu ul {
-    @apply fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2
-    p-3
-    bg-white
-    w-fit
+    @apply modal
 }
 
 #lang-menu li {
@@ -128,10 +124,21 @@ body {
     }
 
     .btn-primary {
-        @apply box
-        text-primary
+        @apply bg-primary text-white rounded-lg
         px-5 py-2
         inline-block
+    }
+
+    .modal-bg {
+        background: rgba(0, 0, 0, 0.8);
+        @apply fixed top-0 bottom-0 right-0 left-0
+        z-50
+    }
+
+    .modal {
+        @apply fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2
+        bg-white text-black rounded-lg
+        w-fit p-3
     }
 }
 
@@ -155,7 +162,10 @@ body {
 }
 
 .intro div div:first-child a {
-    @apply btn-primary
+    @apply box
+    text-primary
+    px-5 py-2
+    inline-block
 }
 
 .intro div div:first-child ~ * a {
@@ -248,6 +258,10 @@ body {
 
 .step .actions input:hover, .step .actions button:hover {
     @apply shadow-blue-400
+}
+
+#step1 .actions {
+    @apply items-baseline
 }
 
 #step1 .actions div {

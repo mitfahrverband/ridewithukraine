@@ -16,5 +16,11 @@ let $ = (selector) => {
   result.onClick = cb => {
     result.forEach(r => r.onclick = cb);
   };
+  result.disable = () => {
+    result.forEach(r => r.setAttribute('disabled', ''));
+  };
+  result.enable = () => {
+    result.forEach(r => r.removeAttribute('disabled'));
+  };
   return result;
 }
