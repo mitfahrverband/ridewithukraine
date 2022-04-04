@@ -54,7 +54,9 @@ body {
 }
 
 #lang-btn {
-    @apply h-12 p-3 cursor-pointer
+    @apply h-12
+    ml-auto p-3
+    cursor-pointer
 }
 
 #lang-menu {
@@ -82,7 +84,6 @@ body {
     flex flex-col
     md:grid md:gap-10 md:space-y-0 grid-cols-3
     md:shadow-lg shadow-primary
-    bg-secondary
     space-y-12 pb-12
 }
 
@@ -157,6 +158,11 @@ body {
 }
 
 /* Index */
+
+.card {
+    @apply bg-secondary pb-10
+}
+
 .intro > div {
     @apply flex flex-col justify-evenly
     h-96
@@ -177,9 +183,9 @@ body {
 }
 
 .intro > p {
-    @apply text-black
+    @apply text-black bg-secondary
     px-4
-    my-6
+    py-6
 }
 
 #steps {

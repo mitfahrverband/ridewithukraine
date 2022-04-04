@@ -26,6 +26,7 @@ Page::render(function () {
         </div>
     </div>
     <div class="order-2 flex-1 col-span-2 flex flex-col mt-10">
+        <div class="bg-secondary px-3 py-6"><?= Label::get('results.title') ?></div>
         <div class="flex-1 relative flex justify-center items-center">
             <?php renderIframe(); ?>
         </div>
@@ -57,7 +58,7 @@ function renderIntro() {
 
 function renderSteps() {
     ?>
-    <form id="steps">
+    <form id="steps" class="card">
         <div class="heading">
             <h1><?= Label::get('platform.steps.title') ?></h1>
             <h2><?= Label::get('platform.steps.subTitle') ?></h2>
@@ -266,20 +267,22 @@ function renderIframe() {
 
 function renderPlatforms() {
     ?>
-    <div class="box py-10 space-y-10 mx-3">
-        <p><?= Label::get('platforms.offering') ?></p>
-        <div class="flex">
-            <img src="/img/logos.webp" class="mx-auto">
+    <div class="card py-10">
+        <div class="box py-10 space-y-10 mx-3">
+            <p><?= Label::get('platforms.offering') ?></p>
+            <div class="flex">
+                <img src="/img/logos.webp" class="mx-auto">
+            </div>
+            <a class="btn-white"><?= Label::get('platforms.contact') ?></a>
+            <p><?= Label::get('platforms.subText') ?></p>
         </div>
-        <a class="btn-white"><?= Label::get('platforms.contact') ?></a>
-        <p><?= Label::get('platforms.subText') ?></p>
     </div>
     <?php
 }
 
 function renderPrintedCards() {
     ?>
-    <div id="printed">
+    <div id="printed" class="card">
         <div class="heading">
             <h1><?= Label::get('printed.title') ?></h1>
             <h2><?= Label::get('printed.subTitle') ?></h2>
@@ -321,7 +324,7 @@ function renderSafety() {
     }
     ');
     ?>
-    <div id="safety">
+    <div id="safety" class="card">
         <div class="heading">
             <h1><?= Label::get('safety.title') ?></h1>
             <h2><?= Label::get('safety.subTitle') ?></h2>
@@ -347,7 +350,7 @@ function renderSafety() {
 
 function renderSupporter() {
     ?>
-    <div id="supporter">
+    <div id="supporter" class="card py-10">
         <div class="box space-y-6 m-3 py-5">
             <p><?= Label::get('supporter.title') ?></p>
             <div class="flex">
