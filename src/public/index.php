@@ -293,7 +293,8 @@ function renderPrintedCards() {
                 <img src="/img/hanger.webp" class="mx-auto">
             </div>
             <div class="text-primary underline pb-8 ml-8">
-                <a class="block"><?= Label::get('printed.download') ?></a>
+                <a class="block" href="/pdf/Windshield_front+back_ridewithukraine.pdf"
+                ><?= Label::get('printed.download') ?></a>
                 <a class="block"><?= Label::get('printed.order') ?></a>
             </div>
         </div>
@@ -303,7 +304,8 @@ function renderPrintedCards() {
                 <img src="/img/postcard.webp" class="mx-auto">
             </div>
             <div class="text-primary underline pb-8 ml-8">
-                <a class="block"><?= Label::get('printed.download') ?></a>
+                <a class="block" href="/pdf/Flyer_front+back_ridewithukraine.pdf"
+                ><?= Label::get('printed.download') ?></a>
                 <a class="block"><?= Label::get('printed.order') ?></a>
             </div>
         </div>
