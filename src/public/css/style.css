@@ -155,6 +155,47 @@ body {
         bg-white text-black rounded-lg
         w-fit p-3
     }
+
+    .trip-list {
+        @apply flex flex-col space-y-3
+    }
+
+    .trip-list .item {
+        @apply flex space-x-3 p-1
+        border-secondary border-2 rounded-lg
+    }
+
+    .trip-list .item:nth-child(even) {
+        @apply border-primary
+    }
+
+    .trip-list .item p:first-child {
+        @apply text-primary
+    }
+
+    .trip-list .item ul {
+        @apply flex-grow
+    }
+
+    .trip-list .item li {
+        @apply relative pl-5 -indent-5;
+    }
+
+    .trip-list .item li:before {
+        content: '\25CF';
+        margin-right: 8px;
+    }
+
+    .trip-list .item li:not(:last-child):after {
+        @apply absolute left-0 top-[1em]
+        border-black border-l-2
+        h-full ml-[5px];
+        content: '';
+    }
+
+    .trip-list .item img {
+        @apply h-10 w-10 object-contain self-center
+    }
 }
 
 /* Index */
