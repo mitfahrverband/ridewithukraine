@@ -80,14 +80,14 @@ function renderStep1() {
         </div>
         <div class="actions">
             <div>
-                <input type="radio" name="mode" value="searching" checked
-                       style="background-image: url('/img/exporte_pikto_mitfahrenElement 18.svg')">
-                <p><?= Label::get('platform.step1.searching') ?></p>
-            </div>
-            <div>
-                <input type="radio" name="mode" value="driving"
+                <input type="radio" name="mode" value="driving" checked
                        style="background-image: url('/img/exporte_pikto_mitfahrenElement 15.svg')">
                 <p><?= Label::get('platform.step1.driving') ?></p>
+            </div>
+            <div>
+                <input type="radio" name="mode" value="searching" disabled class="!bg-gray-400"
+                       style="background-image: url('/img/exporte_pikto_mitfahrenElement 18.svg')">
+                <p><?= Label::get('platform.step1.searching') ?></p>
             </div>
         </div>
     </div>
@@ -231,7 +231,7 @@ function renderSuccessModal() {
             </div>
             <div class="box">
                 <p class="text-base"><?= Label::get('platform.step5.sentSubText') ?></p>
-                <img src="/img/ride2go.webp" class="mx-auto">
+                <img src="/img/ride2go.png" class="mx-auto">
             </div>
             <a class="btn-primary mx-auto" href="/">OK</a>
         </div>
@@ -267,14 +267,15 @@ function renderIframe() {
 
 function renderPlatforms() {
     ?>
-    <div class="card py-10">
+    <div id="platforms" class="card py-10">
         <div class="box py-10 space-y-10 mx-3">
-            <p><?= Label::get('platforms.offering') ?></p>
-            <div class="flex">
-                <img src="/img/logos.webp" class="mx-auto">
-            </div>
-            <a class="btn-white"><?= Label::get('platforms.contact') ?></a>
             <p><?= Label::get('platforms.subText') ?></p>
+            <div class="flex flex-wrap justify-center">
+                <a href="https://ride2go.de/"><img src="/img/ride2go.png"></a>
+                <a href="https://mifaz.de/"><img src="/img/mifaz.png"></a>
+                <a href="https://bessermitfahren.de/"><img src="/img/bessermitfahren_logo.png"></a>
+            </div>
+            <p><?= Label::get('platforms.offering') ?></p>
         </div>
     </div>
     <?php
@@ -290,7 +291,7 @@ function renderPrintedCards() {
         <div class="box space-y-10 mx-3 mt-3">
             <p><?= Label::get('printed.hanger') ?></p>
             <div class="flex">
-                <img src="/img/hanger.webp" class="mx-auto">
+                <img src="/img/hanger.png" class="mx-auto">
             </div>
             <div class="text-primary underline pb-8 ml-8">
                 <a class="block" href="/pdf/Windshield_front+back_ridewithukraine.pdf"
@@ -301,7 +302,7 @@ function renderPrintedCards() {
         <div class="box space-y-10 mx-3 mt-3">
             <p><?= Label::get('printed.postcard') ?></p>
             <div class="flex">
-                <img src="/img/postcard.webp" class="mx-auto">
+                <img src="/img/postcard.png" class="mx-auto">
             </div>
             <div class="text-primary underline pb-8 ml-8">
                 <a class="block" href="/pdf/Flyer_front+back_ridewithukraine.pdf"
@@ -355,10 +356,12 @@ function renderSupporter() {
     <div id="supporter" class="card py-10">
         <div class="box space-y-6 m-3 py-5">
             <p><?= Label::get('supporter.title') ?></p>
-            <div class="flex">
-                <img src="/img/sportguide.webp" class="mx-auto">
+            <div class="flex flex-col space-y-6">
+                <a href="https://sportguide.rocks"><img src="/img/sportguide.png" class="mx-auto"></a>
+                <a href="https://ride2go.de"><img src="/img/ride2go.png" class="mx-auto"></a>
+                <a href="https://mitfahrverband.org"><img src="/img/Mitfahrverband_eV_logo_lang.png"
+                                                          class="mx-auto -my-8"></a>
             </div>
-            <a class="btn-white" href="https://sportguide.rocks"><?= Label::get('platforms.contact') ?></a>
         </div>
     </div>
     <?php

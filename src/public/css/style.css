@@ -165,6 +165,10 @@ body {
         border-secondary border-2 rounded-lg
     }
 
+    .trip-list .item:hover {
+        @apply bg-gray-100
+    }
+
     .trip-list .item:nth-child(even) {
         @apply border-primary
     }
@@ -351,6 +355,14 @@ body {
 
 #step5 button img {
     @apply h-10 w-10
+}
+
+#platforms a {
+    @apply w-1/2 p-2
+}
+
+#platforms img {
+    @apply object-contain mx-auto
 }
 
 /* Components */

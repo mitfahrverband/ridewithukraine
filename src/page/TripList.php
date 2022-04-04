@@ -16,7 +16,7 @@ class TripList {
     static function renderItem(object $item) {
         $date = isset($item->departDate) ? (new \DateTime($item->departDate))->format('d.m.') : 'DATE';
         ?>
-        <a class="item" href="<?= $item->deeplink ?? '' ?>">
+        <a class="item" href="<?= $item->deeplink ?? '' ?>" target='_blank'>
             <div>
                 <p><?= $date ?></p>
                 <p><?= $item->departTime ?? 'TIME' ?></p>
