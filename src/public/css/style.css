@@ -70,7 +70,7 @@ body {
 }
 
 #lang-menu li {
-    @apply p-3 px-10
+    @apply p-3 px-10 w-fit
 }
 
 #lang-menu li:hover {
@@ -155,7 +155,7 @@ body {
     .modal {
         @apply fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2
         bg-white text-black rounded-xl
-        w-fit p-3
+        p-3
     }
 
     .trip-list {
@@ -184,19 +184,20 @@ body {
     }
 
     .trip-list .item li {
-        @apply relative pl-5 -indent-5;
+        @apply relative pl-5
     }
 
     .trip-list .item li:before {
-        content: '\25CF';
-        margin-right: 8px;
+        @apply absolute left-0 top-[0.5em] inline-block
+        h-2 w-2 bg-black
+        content-[] rounded-full
     }
 
     .trip-list .item li:not(:last-child):after {
-        @apply absolute left-0 top-[1em]
+        @apply absolute top-[0.8em] left-1 h-full
+        -translate-x-1/2
         border-black border-l-2
-        h-full ml-[5px];
-        content: '';
+        content-[]
     }
 
     .trip-list .item img {

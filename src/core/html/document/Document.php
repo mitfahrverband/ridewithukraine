@@ -9,6 +9,7 @@ class Document {
     protected static ?string $name = null;
     protected static ?string $title = null;
     protected static ?string $description = null;
+    protected static ?string $keywords = null;
     protected static array $head = [];
 
     static function setName(string $name) {
@@ -18,8 +19,7 @@ class Document {
     static function getTitle(): string {
         if (isset(self::$title)) return self::$title;
         if (isset(self::$name)) $title = Label::getOrDefault(self::$name . '.title', null);
-        $title ??= Label::getOrDefault('document.title', '');
-        return $title;
+        return $title ?? Label::getOrDefault('document.title', '');
     }
 
     static function setTitle(string $title) {
@@ -27,11 +27,23 @@ class Document {
     }
 
     static function getDescription(): string {
-        return self::$description ?? Label::getOrDefault('document.description', '');
+        if (isset(self::$description)) return self::$description;
+        if (isset(self::$name)) $description = Label::getOrDefault(self::$name . '.description', null);
+        return $description ?? Label::getOrDefault('document.description', '');
     }
 
     static function setDescription(string $description) {
         self::$description = $description;
+    }
+
+    static function getKeywords(): string {
+        if (isset(self::$keywords)) return self::$keywords;
+        if (isset(self::$name)) $keywords = Label::getOrDefault(self::$name . '.keywords', null);
+        return $keywords ?? Label::getOrDefault('document.keywords', '');
+    }
+
+    static function setKeywords(string $keywords) {
+        self::$keywords = $keywords;
     }
 
     static function add(DocumentFragment $documentFragment) {
@@ -92,6 +104,7 @@ class Document {
         $renderFunction();
         $body = ob_get_clean();
         $description = static::getDescription();
+        $keywords = static::getKeywords();
         ?>
         <!DOCTYPE html>
         <html lang="<?= Language::get() ?>">
@@ -101,6 +114,7 @@ class Document {
             <meta name="viewport" content="width=device-width, initial-scale=1"/>
             <?= static::$webAppCapable ? '<meta name="mobile-web-app-capable" content="yes">' : '' ?>
             <?= $description ? "<meta name='description' content='$description'>" : '' ?>
+            <?= $keywords ? "<meta name='keywords' content='$keywords'>" : '' ?>
             <?php
             ksort(self::$head);
             foreach (self::$head as $head) {
