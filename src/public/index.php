@@ -278,6 +278,7 @@ function renderPrintedCards() {
                 <a class="block"><?= Label::get('printed.order') ?></a>
             </div>
         </div>
+        <img src="/img/ridewithukrain_print_00008ee.png" class="my-3">
     </div>
     <?php
 }
