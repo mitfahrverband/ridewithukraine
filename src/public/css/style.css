@@ -272,11 +272,12 @@ body {
     @apply text-black text-center
     border-b-2 border-b-primary
     outline-none
-    min-w-0
+    min-w-0;
 }
 
 .step input[type="datetime-local"] {
     padding-top: 10px;
+    -webkit-appearance: none;
     @apply block
     bg-white;
 }

@@ -2,13 +2,14 @@
 namespace page;
 
 use core\html\document\Document;
+use core\http\Url;
 use core\language\Label;
 
 Label::addFile(__DIR__ . '/../labels/labels_en.properties');
 
 Document::addIcon('image/svg+xml', '/img/exporte_pikto_mitfahren_v2Element 1.svg');
-Document::addStylesheet('css/style.min.css');
-Document::addScriptFile('js/script.js');
+Document::addStylesheet(Url::version('/css/style.min.css'));
+Document::addScriptFile(Url::version('/js/script.js'));
 
 class Page extends Document {
 
