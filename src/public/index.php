@@ -25,7 +25,7 @@ Page::render(function () {
             ?>
         </div>
     </div>
-    <div class="order-2 flex-1 col-span-2 flex flex-col mt-10">
+    <div class="order-2 flex-1 lg:col-span-2 flex flex-col mt-10">
         <?php renderIframe(); ?>
     </div>
     <?php
@@ -34,7 +34,7 @@ Page::render(function () {
 function renderIntro() {
     ?>
     <div class="intro">
-        <div style="background: url('/img/IMG_8802_x.webp'); background-size: cover">
+        <div style="background: url('/img/IMG_8802_x.jpg'); background-size: cover">
             <div>
                 <h2><?= Label::get('intro.platform.text') ?></h2>
                 <a class="btn-white" href="#steps"><?= Label::get('intro.platform.button') ?></a>
@@ -258,7 +258,10 @@ function renderIframe() {
     <script>
       $('.results')[0].onload = (e) => {
         let iframe = e.target;
-        iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
+        let doc = iframe.contentWindow.document;
+        doc.documentElement.style.overflowY = 'hidden';
+        doc.body.style.overflowY = 'hidden';
+        iframe.style.height = doc.body.scrollHeight + 'px';
       };
       $()[0].onload = () => $('.loading')[0].classList.add('hidden');
     </script>
@@ -290,7 +293,7 @@ function renderPrintedCards() {
         </div>
         <div class="box space-y-10 mx-3 mt-3">
             <p><?= Label::get('printed.hanger') ?></p>
-            <div class="flex">
+            <div>
                 <img src="/img/hanger.png" class="mx-auto">
             </div>
             <div class="text-primary underline pb-8 ml-8">
@@ -301,7 +304,7 @@ function renderPrintedCards() {
         </div>
         <div class="box space-y-10 mx-3 mt-3">
             <p><?= Label::get('printed.postcard') ?></p>
-            <div class="flex">
+            <div>
                 <img src="/img/postcard.png" class="mx-auto">
             </div>
             <div class="text-primary underline pb-8 ml-8">

@@ -82,7 +82,7 @@ body {
     flex-1
     w-full max-w-screen-xl mx-auto
     flex flex-col
-    md:grid md:gap-10 md:space-y-0 grid-cols-3
+    md:grid md:gap-10 md:space-y-0 md:grid-cols-2 lg:grid-cols-3
     md:shadow-lg shadow-primary
     space-y-12 pb-12
 }
@@ -260,7 +260,7 @@ body {
 .step .actions {
     @apply box
     py-5
-    flex gap-3
+    flex space-x-3
     items-center
     relative
 }
