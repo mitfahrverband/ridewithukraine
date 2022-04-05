@@ -117,7 +117,7 @@ body {
     .box {
         @apply bg-white
         p-3
-        rounded-lg
+        rounded-xl
     }
 
     .box-primary {
@@ -126,7 +126,9 @@ body {
     }
 
     .btn-primary {
-        @apply bg-primary text-white rounded-lg
+        @apply bg-primary text-white rounded-xl
+        hover:shadow-lg shadow-black
+        disabled:shadow-none
         px-5 py-2
         inline-block
     }
@@ -152,7 +154,7 @@ body {
 
     .modal {
         @apply fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2
-        bg-white text-black rounded-lg
+        bg-white text-black rounded-xl
         w-fit p-3
     }
 
@@ -162,7 +164,7 @@ body {
 
     .trip-list .item {
         @apply flex space-x-3 p-1
-        border-secondary border-2 rounded-lg
+        border-secondary border-2 rounded-xl
     }
 
     .trip-list .item:hover {
@@ -265,7 +267,7 @@ body {
     relative
 }
 
-.step input {
+.step input:not([type="radio"]) {
     @apply text-black text-center
     border-b-2 border-b-primary
     outline-none
@@ -279,30 +281,20 @@ body {
 }
 
 .step .actions input[type="radio"] {
-    @apply w-full h-20
-    bg-primary
-    rounded-xl
-    shadow-md
+    @apply relative btn-primary w-full h-20
     appearance-none cursor-pointer
     bg-contain bg-center bg-no-repeat bg-origin-content
     p-3
 }
 
 .step .actions button {
-    @apply h-20 w-20
-    text-white bg-primary
-    rounded-xl
-    shadow-md
+    @apply btn-primary h-20 w-20
     leading-none
     flex-shrink-0
 }
 
 .step .actions button img {
     @apply h-6 w-6 mx-auto
-}
-
-.step .actions input:hover, .step .actions button:hover {
-    @apply shadow-blue-400
 }
 
 #step1 .actions {
@@ -314,8 +306,10 @@ body {
     text-center text-primary
 }
 
-#step1 .actions input:checked {
-    @apply border-4 border-dotted border-white
+#step1 .actions input:checked::before {
+    @apply absolute top-[3px] bottom-[3px] left-[3px] right-[3px]
+    border-white border-2 rounded-lg;
+    content: ' ';
 }
 
 #step2 .actions > *:first-child {
@@ -336,7 +330,7 @@ body {
 }
 
 #step5 #create-form input {
-    @apply bg-white rounded-lg text-left
+    @apply bg-white rounded-xl text-left
     w-20
     pl-3 py-1
 }

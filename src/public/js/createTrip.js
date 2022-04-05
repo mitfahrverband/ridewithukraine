@@ -41,5 +41,7 @@ $("form")[0].onsubmit = async e => {
   $sendingModal.toggleClass('hidden');
   if (response.ok) {
     $("#success-modal").toggleClass('hidden');
+  } else {
+    $("#error-modal").toggleClass('hidden');
   }
 };

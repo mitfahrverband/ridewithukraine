@@ -10,4 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'X-API-Key' => '8GMCF50WN9rqVNxIqAtVc8rS9wCiLDdM',
         'Content-Type' => 'application/json',
     ]);
+    http_response_code($response->status);
+    exit;
 }
+http_response_code(404);
