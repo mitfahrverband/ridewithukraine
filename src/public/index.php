@@ -130,7 +130,7 @@ function renderStep3() {
             <img src="/img/exporte_pikto_abfahrt_locationElement%203.svg">
         </div>
         <div class="actions">
-            <input name="departureLocation" data-autocomplete required>
+            <input name="departureLocation" autocomplete="off" data-autocomplete required>
             <button type="button">
                 <img src="/img/exporte_pikto_mitfahrenElement%207.svg" class="rotate-90">
                 <?= Label::get('platform.step3.here') ?>
@@ -148,7 +148,7 @@ function renderStep4() {
             <img src="/img/exporte_pikto_zielElement%202.svg">
         </div>
         <div class="actions">
-            <input name="destination" data-autocomplete required>
+            <input name="destination" autocomplete="off" data-autocomplete required>
         </div>
     </div>
     <?php
@@ -158,7 +158,7 @@ function renderCreateForm() {
     ?>
     <div id="create-form" class="hidden">
         <div>
-            <input name="seats" type="number" min="1" value="1">
+            <input name="seats" type="number" min="1" value="2">
             <span><?= Label::get('platform.step5.seats') ?></span>
         </div>
         <input name="phone" placeholder="<?= Label::get('platform.step5.phone') ?>">
