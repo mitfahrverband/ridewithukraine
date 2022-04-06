@@ -11,7 +11,7 @@
 
     require_once "../core/Autoload.php";
 
-    $filedata = file_get_contents('./data/json_data.json');
+    $filedata = file_get_contents('../data/json_data.json');
     $details = json_decode($filedata); ?>
     <?php
     TripList::render($details);
