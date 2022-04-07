@@ -44,10 +44,10 @@
         $components = explode(", ", $stop->address ?? '');
         $last = array_pop($components);
         if (in_array($last, $coveredcountries)) {
-          $item->country = $last;
+          $stop->country = $last;
           $city = array_pop($components);
         } else { 
-          $item->country = "Unkown";
+          $stop->country = "Unkown";
           $city = $last;
         } 
         # if previous address matches the city of this stop then do not repeat the same city again.
