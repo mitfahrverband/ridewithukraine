@@ -8,7 +8,7 @@ class SendModals {
     static function renderSending() {
         ?>
         <div id="sending-modal" class="modal-bg hidden">
-            <div class="modal p-8">
+            <div class="modal p-8 space-y-3 max-w-sm">
                 <div class="flex">
                     <svg class="inline mx-auto w-10 h-10 text-background animate-spin fill-primary"
                          viewBox="0 0 100 101"
@@ -19,7 +19,7 @@ class SendModals {
                               fill="currentFill"/>
                     </svg>
                 </div>
-                <p><?= Label::get('platform.step5.sending') ?></p>
+                <p class="text-center whitespace-nowrap"><?= Label::get('platform.step5.sending') ?></p>
             </div>
         </div>
         <?php

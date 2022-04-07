@@ -23,9 +23,9 @@ $("form")[0].onsubmit = async e => {
     departTime: time[1],
   };
   if (fields['mode'].value === 'driving') {
-    data.seats = parseInt(fields['seats']?.value);
-    data.email = fields['mail']?.value;
-    data.phoneNumber = fields['phone']?.value;
+    data.seats = parseInt(fields['seats'].value);
+    data.email = fields['mail'].value;
+    data.phoneNumber = fields['phone'].value;
     data.acceptTerms = true;
   }
   $("body, html").toggleClass("overflow-hidden");
@@ -44,4 +44,4 @@ $("form")[0].onsubmit = async e => {
   } else {
     $("#error-modal").toggleClass('hidden');
   }
-};
+}

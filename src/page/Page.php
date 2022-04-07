@@ -26,7 +26,7 @@ class Page extends Document {
             </div>
             <?php LanguageMenu::render(); ?>
             <img class="header-logo" src="/img/exporte_pikto_mitfahren_v2Element 1.svg">
-            <div class="flex"><span id="lang-btn">Language</span></div>
+            <div class="flex"><a id="lang-btn" href="#lang-menu">Language</a></div>
             <div class="main">
                 <?php $renderFunction(); ?>
             </div>

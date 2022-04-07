@@ -63,17 +63,18 @@ body {
     background: rgba(0, 0, 0, 0.8);
     @apply fixed top-0 bottom-0 right-0 left-0
     z-50
+    hidden target:block
 }
 
-#lang-menu ul {
+#lang-menu div {
     @apply modal
 }
 
-#lang-menu li {
-    @apply p-3 px-10 w-fit
+#lang-menu a {
+    @apply block p-3 px-10 whitespace-nowrap
 }
 
-#lang-menu li:hover {
+#lang-menu a:hover {
     @apply bg-primary text-white cursor-pointer
 }
 
@@ -155,6 +156,7 @@ body {
     .modal {
         @apply fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2
         bg-white text-black rounded-xl
+        w-full max-w-xl
         p-3
     }
 
@@ -362,7 +364,7 @@ body {
 }
 
 /* Components */
-input[data-autocomplete] + div {
+input[oninput^=Autocomplete] + div {
     top: 90%;
     @apply absolute left-0 right-0
     text-black bg-white
@@ -371,11 +373,11 @@ input[data-autocomplete] + div {
     border-4 border-white
 }
 
-input[data-autocomplete] + div p {
+input[oninput^=Autocomplete] + div p {
     @apply px-3 py-2
     cursor-pointer
 }
 
-input[data-autocomplete] + div p:hover {
+input[oninput^=Autocomplete] + div p:hover {
     @apply text-white bg-primary
 }

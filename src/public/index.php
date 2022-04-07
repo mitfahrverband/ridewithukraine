@@ -1,12 +1,13 @@
 <?php
+use core\http\Url;
 use core\language\Label;
 use page\Page;
 use page\SendModals;
 
 require_once "../core/Autoload.php";
 
-Page::addScriptFile('/js/autocomplete.js', defer: true);
-Page::addScriptFile('/js/createTrip.js', defer: true);
+Page::addScriptFile(Url::version('/js/autocomplete.js'), defer: true);
+Page::addScriptFile(Url::version('/js/createTrip.js'), defer: true);
 
 Page::render(function () {
     ?>
@@ -130,8 +131,8 @@ function renderStep3() {
             <img src="/img/exporte_pikto_abfahrt_locationElement%203.svg">
         </div>
         <div class="actions">
-            <input name="departureLocation" autocomplete="off" data-autocomplete required>
-            <button type="button">
+            <input name="departureLocation" required oninput="Autocomplete.oninput(this)">
+            <button type="button" onclick="Autocomplete.onclick(this)">
                 <img src="/img/exporte_pikto_mitfahrenElement%207.svg" class="rotate-90">
                 <?= Label::get('platform.step3.here') ?>
             </button>
@@ -148,7 +149,7 @@ function renderStep4() {
             <img src="/img/exporte_pikto_zielElement%202.svg">
         </div>
         <div class="actions">
-            <input name="destination" autocomplete="off" data-autocomplete required>
+            <input name="destination" required oninput="Autocomplete.oninput(this);">
         </div>
     </div>
     <?php
@@ -163,22 +164,22 @@ function renderCreateForm() {
         </div>
         <input name="phone" placeholder="<?= Label::get('platform.step5.phone') ?>">
         <input name="mail" type="email" placeholder="<?= Label::get('platform.step5.mail') ?>" required>
-        <script type="module">
-          let updateForm = () => {
-            let $form = $("#create-form");
-            let $formInputs = $("#create-form input");
-            if ($("form")[0].elements['mode'].value === 'searching') {
-              $form.addClass('hidden');
-              $formInputs.disable();
-            } else {
-              $form.removeClass('hidden');
-              $formInputs.enable();
-            }
-          };
-          $("input[name='mode']").onClick(updateForm);
-          updateForm();
-        </script>
     </div>
+    <script>
+      let updateForm = () => {
+        let $form = $("#create-form");
+        let $formInputs = $("#create-form input");
+        if ($("form")[0].elements['mode'].value === 'searching') {
+          $form.addClass('hidden');
+          $formInputs.disable();
+        } else {
+          $form.removeClass('hidden');
+          $formInputs.enable();
+        }
+      };
+      $("input[name='mode']").onClick(updateForm);
+      updateForm();
+    </script>
     <?php
 }
 
