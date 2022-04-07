@@ -35,9 +35,12 @@ class TripList {
         <?php
     }
 
-    static function getLogoUrl(object $item) {
-        if (str_contains($item->deeplink ?? '', 'mifaz'))
+    static function getLogoUrl(object $item): string {
+        if (!isset($item->deeplink)) return '';
+        if (str_contains($item->deeplink, 'mifaz'))
             return "https://ride2go.com/img/mifaz_logo.png";
+        if (str_contains($item->deeplink, 'besser'))
+            return "/img/bessermitfahren_logo_sm.png";
         return "https://ride2go.com/img/r2g_favicon.png";
     }
 

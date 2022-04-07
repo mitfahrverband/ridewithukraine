@@ -167,17 +167,14 @@ body {
     .trip-list .item {
         @apply flex space-x-3 p-1
         border-secondary border-2 rounded-xl
-    }
-
-    .trip-list .item:hover {
-        @apply bg-gray-100
+        hover:bg-gray-100
     }
 
     .trip-list .item:nth-child(even) {
         @apply border-primary
     }
 
-    .trip-list .item p:first-child {
+    .trip-list .item > div {
         @apply text-primary
     }
 
@@ -295,6 +292,7 @@ body {
     @apply btn-primary h-20 w-20
     leading-none
     flex-shrink-0
+    px-3
 }
 
 .step .actions button img {

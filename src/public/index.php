@@ -116,7 +116,6 @@ function renderStep2() {
                 time.value = new Date(now.getTime() - now.getTimezoneOffset() * 60000).toISOString().substring(0, 16);
               };
               $('#step2 button').onClick(setNow);
-              setNow();
             </script>
         </div>
     </div>
@@ -329,6 +328,9 @@ function renderSupporter() {
             <div class="flex flex-col space-y-6">
                 <a href="https://sportguide.rocks"><img src="/img/sportguide.png" class="mx-auto"></a>
                 <a href="https://ride2go.de"><img src="/img/ride2go.png" class="mx-auto"></a>
+            </div>
+            <p><?= Label::get('supporter.title2') ?></p>
+            <div class="flex flex-col space-y-6">
                 <a href="https://mitfahrverband.org"><img src="/img/Mitfahrverband_eV_logo_lang.png"
                                                           class="mx-auto -my-8"></a>
             </div>
