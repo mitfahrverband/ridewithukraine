@@ -1,6 +1,7 @@
 <?php
 use core\http\Url;
 use core\language\Label;
+use page\Menu;
 use page\Page;
 use page\SendModals;
 
@@ -24,11 +25,14 @@ Page::render(function () {
             renderPrintedCards();
             renderSafety();
             renderSupporter();
+            Menu::render();
             ?>
         </div>
     </div>
     <div class="order-2 flex-1 lg:col-span-2 flex flex-col mt-10">
-        <?php renderIframe(); ?>
+        <?php
+        renderTrips();
+        ?>
     </div>
     <?php
 });
@@ -204,8 +208,18 @@ function renderStep5() {
     <?php
 }
 
-function renderIframe() {
+function renderTrips() {
     ?>
+    <div class="platforms bg-secondary pt-3">
+        <div class="box">
+            <p><?= Label::get('platforms.offering') ?></p>
+            <div class="flex flex-wrap justify-center">
+                <a href="https://ride2go.de/"><img src="/img/ride2go.png"></a>
+                <a href="https://mifaz.de/"><img src="/img/mifaz.png"></a>
+                <a href="https://bessermitfahren.de/"><img src="/img/bessermitfahren_logo.png"></a>
+            </div>
+        </div>
+    </div>
     <div class="bg-secondary px-3 py-6"><?= Label::get('results.title') ?></div>
     <div class="flex-1 relative flex justify-center px-1 my-3">
         <iframe class="results w-full h-0" src="/iframe2.php"></iframe>
@@ -235,7 +249,7 @@ function renderIframe() {
 
 function renderPlatforms() {
     ?>
-    <div id="platforms" class="card py-10">
+    <div class="platforms card py-10">
         <div class="box py-10 space-y-10 mx-3">
             <p><?= Label::get('platforms.subText') ?></p>
             <div class="flex flex-wrap justify-center">

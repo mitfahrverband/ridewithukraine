@@ -93,17 +93,15 @@ body {
     mt-8
 }
 
-.footer .menu {
-    @apply flex
-    w-full max-w-screen-xl mx-auto
-}
-
-.footer .menu div {
+.menu {
     @apply bg-secondary
-    w-full md:w-1/3
     flex flex-col
     p-8
     space-y-3
+}
+
+.menu a:hover {
+    @apply underline
 }
 
 .footer .logo {
@@ -353,12 +351,18 @@ body {
     @apply h-10 w-10
 }
 
-#platforms a {
-    @apply w-1/2 p-2
+.platforms .box {
+    @apply space-y-5 mx-3 py-5
 }
 
-#platforms img {
+.platforms a {
+    @apply w-1/3
+    p-2
+}
+
+.platforms img {
     @apply object-contain mx-auto
+    h-12
 }
 
 /* Components */
@@ -378,4 +382,18 @@ input[oninput^=Autocomplete] + div p {
 
 input[oninput^=Autocomplete] + div p:hover {
     @apply text-white bg-primary
+}
+
+
+#faq {
+    @apply md:p-10
+}
+
+#faq .entries {
+    @apply space-y-5
+}
+
+#faq summary {
+    @apply text-primary text-2xl
+    hover:underline
 }

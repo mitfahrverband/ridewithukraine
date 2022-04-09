@@ -31,9 +31,6 @@ class Page extends Document {
                 <?php $renderFunction(); ?>
             </div>
             <div class="footer">
-                <div class="menu">
-                    <?php Menu::render(); ?>
-                </div>
                 <div class="logo">
                     <div class="text-base ml-3 md:ml-12">
                         <p>Initiated and powered by</p>
