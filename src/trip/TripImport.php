@@ -31,14 +31,13 @@ class TripImport extends FileImport {
                 'url' => $element->deeplink,
             ];
             foreach ($element->stops as $key => $stop) {
-                $addressElements = explode(', ', $stop->address);
                 $stops[] = [
                     'trip' => $i,
                     'type' => array_key_first($element->stops) === $key ? 'start' :
                         (array_key_last($element->stops) === $key ? 'end' : null),
                     'country' => static::getCountry($stop->country),
-                    'city' => array_pop($addressElements),
-                    'line1' => join($addressElements) ?: null,
+                    'city' => $stop->city ?? null,
+                    'line1' => $stop->line1 ?? null,
                     'location' => new Point($stop->coordinates->lat, $stop->coordinates->lon, 4326),
                 ];
             }

@@ -220,10 +220,10 @@ function renderTrips() {
             </div>
         </div>
     </div>
-    <div class="bg-secondary px-3 py-6"><?= Label::get('results.title') ?></div>
+    <div id="results-start" class="bg-secondary px-3 py-6"><?= Label::get('results.title') ?></div>
     <div class="flex-1 relative flex justify-center px-1 my-3">
-        <iframe class="results w-full h-0" src="/iframe2.php"></iframe>
-        <div class="loading absolute w-full flex justify-center items-center">
+        <iframe id="results" class="w-full h-0" src="/iframe3.php"></iframe>
+        <div class="loading absolute w-full h-full flex justify-center bg-white">
             <svg class="inline mr-2 w-10 h-10 text-background animate-spin fill-primary"
                  viewBox="0 0 100 101"
                  fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -235,14 +235,23 @@ function renderTrips() {
         </div>
     </div>
     <script>
-      $('.results')[0].onload = (e) => {
-        let iframe = e.target;
-        let doc = iframe.contentWindow.document;
+      let $results = $('#results')[0];
+      let $loading = $('.loading')[0];
+
+      function updateTrips(url) {
+        $('#results-start')[0].scrollIntoView();
+        $results.src = url;
+        $loading.classList.remove('hidden');
+      }
+
+      $results.onload = () => {
+        let doc = $results.contentWindow.document;
         doc.documentElement.style.overflowY = 'hidden';
         doc.body.style.overflowY = 'hidden';
-        iframe.style.height = doc.body.scrollHeight + 'px';
+        $results.classList.remove('hidden');
+        $results.style.height = doc.body.scrollHeight + 'px';
+        $loading.classList.add('hidden');
       };
-      $()[0].onload = () => $('.loading')[0].classList.add('hidden');
     </script>
     <?php
 }

@@ -14,18 +14,25 @@ class TripList {
     }
 
     static function renderItem(object $item) {
-        $date = isset($item->departDate) ? (new \DateTime($item->departDate))->format('d.m.') : 'DATE';
+        if (isset($item->depart)) {
+            $date = $item->depart;
+            $time = $date?->format('H:i');
+        } else {
+            $date = isset($item->departDate) ? (new \DateTime($item->departDate)) : null;
+            $time = $item->departTime ?? null;
+        }
+        $date = $date?->format('d.m.');
         ?>
         <a class="item" href="<?= $item->deeplink ?? '' ?>" target='_blank'>
             <div>
-                <p><?= $date ?></p>
-                <p><?= $item->departTime ?? 'TIME' ?></p>
+                <p><?= $date ?? 'DATE' ?></p>
+                <p><?= $time ?? 'TIME' ?></p>
             </div>
             <ul>
                 <?php
                 foreach ($item->stops ?? [] as $stop) {
                     ?>
-                    <li><?= $stop->address ?? '' ?></li>
+                    <li><?= $stop->city ?? $stop->address ?? '' ?></li>
                     <?php
                 }
                 ?>
@@ -36,10 +43,11 @@ class TripList {
     }
 
     static function getLogoUrl(object $item): string {
-        if (!isset($item->deeplink)) return '';
-        if (str_contains($item->deeplink, 'mifaz'))
+        $url = $item->url ?? $item->deeplink ?? null;
+        if (!$url) return '';
+        if (str_contains($url, 'mifaz'))
             return "https://ride2go.com/img/mifaz_logo.png";
-        if (str_contains($item->deeplink, 'besser'))
+        if (str_contains($url, 'besser'))
             return "/img/bessermitfahren_logo_sm.png";
         return "https://ride2go.com/img/r2g_favicon.png";
     }

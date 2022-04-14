@@ -148,6 +148,7 @@ class Query {
     }
 
     function orderBy(string $field, string $direction = 'asc'): self {
+        $field = static::convertNames([$field])[0];
         if (!$this->orderBy)
             $this->orderBy = "\nORDER BY $field $direction";
         else
