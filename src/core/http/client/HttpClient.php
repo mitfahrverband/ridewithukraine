@@ -42,4 +42,18 @@ class HttpClient {
         return new HttpClientResponse($response, $http_response_header ?? []);
     }
 
+    static function touch(string $url) {
+        $parts = parse_url($url);
+        $host = $parts['host'] ?? $_SERVER['SERVER_NAME'] ?? null;
+
+        $fp = fsockopen($host, $parts['port'] ?? 80);
+        $out = "GET " . $parts['path'] . " HTTP/1.1\r\n";
+        $out .= "Host: " . $host . "\r\n";
+        $out .= "Content-Length: 0" . "\r\n";
+        $out .= "Connection: Close\r\n\r\n";
+
+        fwrite($fp, $out);
+        fclose($fp);
+    }
+
 }

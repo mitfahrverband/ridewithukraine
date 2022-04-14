@@ -3,7 +3,7 @@ namespace core;
 
 class Config {
 
-    const FILE = __DIR__ . '/../.env';
+    const FILE = __DIR__ . '/../config.ini';
 
     public static array $config;
     public static string $root;
@@ -28,9 +28,9 @@ class Config {
         return $result ?? $default;
     }
 
-    static function require($section = null, $key = null, $default = null) {
-        $result = self::get($section, $key, $default);
-        if (!isset($result) && isset($key) && !isset($default)) {
+    static function require($section = null, $key = null) {
+        $result = self::get($section, $key);
+        if (!isset($result)) {
             throw new \RuntimeException("config entry [$section]$key not found");
         }
         return $result;
