@@ -46,10 +46,10 @@ class TripList {
         $url = $item->url ?? $item->deeplink ?? null;
         if (!$url) return '';
         if (str_contains($url, 'mifaz'))
-            return "https://ride2go.com/img/mifaz_logo.png";
+            return "/img/mifaz.png";
         if (str_contains($url, 'besser'))
             return "/img/bessermitfahren_logo_sm.png";
-        return "https://ride2go.com/img/r2g_favicon.png";
+        return "/img/icon_ride2go_green_small.jpg";
     }
 
 }
