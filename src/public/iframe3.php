@@ -7,6 +7,7 @@
 <body>
 <div id="iframe-container">
     <?php
+    use core\db\DB;
     use core\language\Label;
     use core\db\model\{types\Point, types\Polygon};
     use core\http\request\Request;
@@ -18,6 +19,7 @@
 
     Label::addFile(__DIR__ . '/../labels/labels_en.properties');
 
+    DB::$pdo->setAttribute(PDO::ATTR_AUTOCOMMIT, 0); // MariaDB MDEV-26123 workaround
     try {
         TripImport::onChange('../data/json_data.json');
     } catch (Exception $e) {
