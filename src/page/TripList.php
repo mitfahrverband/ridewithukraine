@@ -23,7 +23,7 @@ class TripList {
         }
         $date = $date?->format('d.m.');
         ?>
-        <a class="item" href="<?= $item->deeplink ?? '' ?>" target='_blank'>
+        <a class="item" href="<?= $item->url ?? $item->deeplink ?? '' ?>" target='_blank'>
             <div>
                 <p><?= $date ?? 'DATE' ?></p>
                 <p><?= $time ?? 'TIME' ?></p>

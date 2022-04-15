@@ -27,6 +27,12 @@ $("form")[0].onsubmit = async e => {
     data.email = fields['mail'].value;
     data.phoneNumber = fields['phone'].value;
     data.acceptTerms = true;
+  } else {
+    updateTrips(
+      `?lat=${data.stops[0].coordinates.lat}&lon=${data.stops[0].coordinates.lon}` +
+      `&depart=${(new Date(fields['departureTime'].value)).getTime() / 1000}`
+    );
+    return;
   }
   $("body, html").toggleClass("overflow-hidden");
   let $sendingModal = $("#sending-modal");

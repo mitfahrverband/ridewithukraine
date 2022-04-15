@@ -5,32 +5,32 @@ use core\db\query\Query;
 
 trait ModelLoad {
 
-    static function load(&$entities, string $path = null, string ...$fields) {
-        if (!$entities) return;
-        if (is_array($entities)) $entityArray = &$entities;
-        else $entityArray = [&$entities];
+    static function load(&$models, string $path = null, string ...$fields) {
+        if (!$models) return;
+        if (is_array($models)) $modelArray = &$models;
+        else $modelArray = [&$models];
 
         $path ??= Query::toSnakeCase(static::getMetadata()->getName());
 
         // Collect references
         $hasMany = false;
-        foreach ($entityArray as $entity) {
-            if ($entity::getMetadata()->hasMany($path)) {
-                $entity->$path = [];
-                $t = $entity;
+        foreach ($modelArray as $model) {
+            if ($model::getMetadata()->hasMany($path)) {
+                $model->$path = [];
+                $t = $model;
                 $hasMany = true;
-            } elseif (isset ($entity->$path)) {
-                $t = $entity->$path;
+            } elseif (isset ($model->$path)) {
+                $t = $model->$path;
             } else {
                 continue;
             }
-            $refs[$t instanceof Model ? $t->getId() : $t][] = &$entity->$path;
+            $refs[$t instanceof Model ? $t->getId() : $t][] = &$model->$path;
         }
         if (!isset($refs)) return;
 
         // Query
         if ($hasMany) {
-            $field = $entity::getMetadata()->getName();
+            $field = $model::getMetadata()->getName();
         } else {
             $field = static::getMetadata()->getName();
         }
@@ -46,14 +46,14 @@ trait ModelLoad {
         $fetchedEntities = $query->list();
 
         // Set results
-        foreach ($fetchedEntities as $entity) {
-            $id = $hasMany ? $entity->$field : $entity->getId();
+        foreach ($fetchedEntities as $model) {
+            $id = $hasMany ? $model->$field : $model->getId();
             foreach ($refs[$id] ?? [] as &$ref)
                 if (is_array($ref)) {
-                    if (isset($removeMappingField)) unset($entity->$field);
-                    $ref[] = $entity;
+                    if (isset($removeMappingField)) unset($model->$field);
+                    $ref[] = $model;
                 } else {
-                    $ref = $entity;
+                    $ref = $model;
                 }
         }
     }

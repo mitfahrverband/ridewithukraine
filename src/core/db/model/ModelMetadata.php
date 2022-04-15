@@ -37,9 +37,9 @@ class ModelMetadata {
                 } elseif ($attr instanceof Reference) {
                     $field['reference'] = $field['type'];
                 } elseif ($attr instanceof HasMany) {
-                    $field['hasMany'] = $rAttribute->newInstance()->modelClass;
+                    $field['hasMany'] = $attr->modelClass;
                 } elseif ($attr instanceof HasOne) {
-                    $field['hasOne'] = $rAttribute->newInstance()->modelClass ?? $field['type'];
+                    $field['hasOne'] = $attr->modelClass ?? $field['type'];
                 }
             }
             if ($field) $this->fields[$name] = $field;
@@ -67,7 +67,7 @@ class ModelMetadata {
         return $this->fields[$field] ?? null;
     }
 
-    function getFieldType(string $field): mixed {
+    function getType(string $field): mixed {
         return $this->fields[$field]['type'] ?? null;
     }
 

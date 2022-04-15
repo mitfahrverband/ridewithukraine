@@ -12,6 +12,7 @@ class Query {
     private string $join = '';
     private string $where = '';
     private string $orderBy = '';
+    private string $limit = '';
     private bool $or = false;
     private bool $not = false;
     private array $whereParams = [];
@@ -149,10 +150,13 @@ class Query {
 
     function orderBy(string $field, string $direction = 'asc'): self {
         $field = static::convertNames([$field])[0];
-        if (!$this->orderBy)
-            $this->orderBy = "\nORDER BY $field $direction";
-        else
-            $this->orderBy .= ", $field $direction";
+        if (!$this->orderBy) $this->orderBy = "\nORDER BY $field $direction";
+        else $this->orderBy .= ", $field $direction";
+        return $this;
+    }
+
+    function limit(int $limit): self {
+        $this->limit = "\nLIMIT $limit";
         return $this;
     }
 
@@ -267,7 +271,7 @@ class Query {
 
     function getSelect(): string {
         $sql = "SELECT $this->fields FROM $this->tableWithAlias";
-        $sql .= $this->join . $this->where . $this->orderBy;
+        $sql .= $this->join . $this->where . $this->orderBy . $this->limit;
         return $sql;
     }
 

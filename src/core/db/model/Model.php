@@ -42,8 +42,8 @@ class Model extends \stdClass implements \JsonSerializable {
     }
 
     static function query(): Query {
-        return DB::table(static::TABLE, 'entity')
-            ->fields('entity.*')
+        return DB::table(static::TABLE, 'model')
+            ->fields('model.*')
             ->map([static::class, 'fromResult'])
             ->onException(function ($e) {
 
@@ -70,7 +70,7 @@ class Model extends \stdClass implements \JsonSerializable {
         $metadata = static::getMetadata();
         $new = [];
         foreach ($result as $field => $value) {
-            $type = $metadata->getFieldType($field);
+            $type = $metadata->getType($field);
             $new[$field] = !isset($value) ? null : match ($type) {
                 DateTime::class => new \DateTime($value),
                 Point::class => Point::fromBinary($value),

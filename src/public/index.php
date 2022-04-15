@@ -86,14 +86,14 @@ function renderStep1() {
         </div>
         <div class="actions">
             <div>
-                <input type="radio" name="mode" value="driving" checked
-                       style="background-image: url('/img/exporte_pikto_mitfahrenElement 15.svg')">
-                <p><?= Label::get('platform.step1.driving') ?></p>
-            </div>
-            <div>
-                <input type="radio" name="mode" value="searching" disabled class="!bg-gray-400"
+                <input type="radio" name="mode" value="searching" checked
                        style="background-image: url('/img/exporte_pikto_mitfahrenElement 18.svg')">
                 <p><?= Label::get('platform.step1.searching') ?></p>
+            </div>
+            <div>
+                <input type="radio" name="mode" value="driving"
+                       style="background-image: url('/img/exporte_pikto_mitfahrenElement 15.svg')">
+                <p><?= Label::get('platform.step1.driving') ?></p>
             </div>
         </div>
     </div>
@@ -209,6 +209,7 @@ function renderStep5() {
 }
 
 function renderTrips() {
+    $url = '/iframe3.php';
     ?>
     <div class="platforms bg-secondary pt-3">
         <div class="box">
@@ -222,7 +223,7 @@ function renderTrips() {
     </div>
     <div id="results-start" class="bg-secondary px-3 py-6"><?= Label::get('results.title') ?></div>
     <div class="flex-1 relative flex justify-center px-1 my-3">
-        <iframe id="results" class="w-full h-0" src="/iframe3.php"></iframe>
+        <iframe id="results" class="w-full h-0" src="<?= $url ?>"></iframe>
         <div class="loading absolute w-full h-full flex justify-center bg-white">
             <svg class="inline mr-2 w-10 h-10 text-background animate-spin fill-primary"
                  viewBox="0 0 100 101"
@@ -238,9 +239,9 @@ function renderTrips() {
       let $results = $('#results')[0];
       let $loading = $('.loading')[0];
 
-      function updateTrips(url) {
+      function updateTrips(urlParams) {
         $('#results-start')[0].scrollIntoView();
-        $results.src = url;
+        $results.src = "<?= $url ?>" + urlParams;
         $loading.classList.remove('hidden');
       }
 
