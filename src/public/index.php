@@ -221,7 +221,7 @@ function renderTrips() {
             </div>
         </div>
     </div>
-    <div id="results-start" class="bg-secondary px-3 py-6"><?= Label::get('results.title') ?></div>
+    <div id="results-title" class="bg-secondary px-3 py-6"><?= Label::get('results.title') ?></div>
     <div class="flex-1 relative flex justify-center px-1 my-3">
         <iframe id="results" class="w-full h-0" src="<?= $url ?>"></iframe>
         <div class="loading absolute w-full h-full flex justify-center bg-white">
@@ -239,10 +239,19 @@ function renderTrips() {
       let $results = $('#results')[0];
       let $loading = $('.loading')[0];
 
-      function updateTrips(urlParams) {
-        $('#results-start')[0].scrollIntoView();
+      function updateTrips(urlParams = "") {
+        $results.style.height = 0;
         $results.src = "<?= $url ?>" + urlParams;
         $loading.classList.remove('hidden');
+
+        let scrollTo = $('#results-title')[0].offsetTop;
+        window.scrollTo(0, scrollTo);
+        let onloadOld = $results.onload;
+        $results.onload = () => {
+          onloadOld();
+          window.scrollTo({top: scrollTo, behavior: 'instant'});
+          $results.onload = onloadOld;
+        };
       }
 
       $results.onload = () => {
