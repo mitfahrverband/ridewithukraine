@@ -214,7 +214,7 @@ function renderTrips() {
         <div class="box">
             <p><?= Label::get('platforms.offering') ?></p>
             <div class="flex flex-wrap justify-center">
-                <a href="https://ride2go.de/"><img src="/img/ride2go.png"></a>
+                <a href="https://ride2go.de/"><img src="/img/logo_ride2go_green.png"></a>
                 <a href="https://mifaz.de/"><img src="/img/mifaz.png"></a>
                 <a href="https://bessermitfahren.de/"><img src="/img/bessermitfahren_logo.png"></a>
             </div>
@@ -271,7 +271,7 @@ function renderPlatforms() {
         <div class="box py-10 space-y-10 mx-3">
             <p><?= Label::get('platforms.subText') ?></p>
             <div class="flex flex-wrap justify-center">
-                <a href="https://ride2go.de/"><img src="/img/ride2go.png"></a>
+                <a href="https://ride2go.de/"><img src="/img/logo_ride2go_green.png"></a>
                 <a href="https://mifaz.de/"><img src="/img/mifaz.png"></a>
                 <a href="https://bessermitfahren.de/"><img src="/img/bessermitfahren_logo.png"></a>
             </div>
