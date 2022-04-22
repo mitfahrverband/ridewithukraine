@@ -1,6 +1,9 @@
 <?php
 namespace page;
 
+use core\http\Url;
+use core\language\Language;
+
 class TripList {
 
     static function render(array $items) {
@@ -22,8 +25,10 @@ class TripList {
             $time = $item->departTime ?? null;
         }
         $date = $date?->format('d.m.');
+        $url = $item->url ?? $item->deeplink ?? '';
+        $url = Url::addParams($url, lang: Language::get());
         ?>
-        <a class="item" href="<?= $item->url ?? $item->deeplink ?? '' ?>" target='_blank'>
+        <a class="item" href="<?= $url ?>" target='_blank'>
             <div>
                 <p><?= $date ?? 'DATE' ?></p>
                 <p><?= $time ?? 'TIME' ?></p>

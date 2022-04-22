@@ -15,7 +15,7 @@ class Language {
     static function get(): string|null {
         $attribute = self::getAttribute();
         if ($attribute) self::setCookie($attribute);
-        return $attribute ?? self::$preferred ?? self::getCookie() ?? self::getHeader() ?? null;
+        return $attribute ?? self::$preferred ?? self::getCookie() ?? self::getHeader() ?? 'en';
     }
 
     static function getAttribute(): string|null {
