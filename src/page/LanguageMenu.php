@@ -11,6 +11,7 @@ class LanguageMenu {
                 <a href="?lang=RU">RU - русский</a>
                 <a href="?lang=DE">DE - Deutsch</a>
                 <a href="?lang=EN">EN - English</a>
+                <a href="?lang=FR">FR - français</a>
                 <a href="?lang=PL">PL - język polski</a>
                 <a href="?lang=SK">SK - slovenčina</a>
                 <a href="?lang=HU">HU - magyar</a>
