@@ -67,15 +67,12 @@ body {
 }
 
 #lang-menu div {
-    @apply modal
+    @apply modal max-w-sm
 }
 
 #lang-menu a {
-    @apply block p-3 px-10 whitespace-nowrap
-}
-
-#lang-menu a:hover {
-    @apply bg-primary text-white cursor-pointer
+    @apply block p-3 px-10 whitespace-nowrap cursor-pointer
+    hover:bg-primary hover:text-white
 }
 
 .main {
