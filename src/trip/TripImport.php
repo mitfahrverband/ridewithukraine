@@ -100,7 +100,6 @@ class TripImport extends FileImport {
             'Ukraine' => 'UA',
             "Österreich" => 'AT',
             'Polen' => 'PL',
-            'null' => '',
         ];
         return $countries[$country] ?? null;
     }
