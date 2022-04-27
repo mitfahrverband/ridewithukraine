@@ -75,7 +75,7 @@ class TripImport extends FileImport {
             # check out all address values for city names (to shorten the text display)
             # move country information to new data structure (to allow display of country flags)
             # remove detailed location information for now
-            $coveredcountries = array("DE", "Deutschland", "UA", "Ukraine", "AT", "Österreich", "PL", "Polen");
+            $coveredcountries = array("DE", "Deutschland", "UA", "Ukraine", "AT", "Österreich", "PL", "Polen", "null");
             foreach ($item->stops ?? [] as $stop) {
                 $components = explode(", ", $stop->address ?? '');
                 $last = array_pop($components);
@@ -100,6 +100,7 @@ class TripImport extends FileImport {
             'Ukraine' => 'UA',
             "Österreich" => 'AT',
             'Polen' => 'PL',
+            'null' => '',
         ];
         return $countries[$country] ?? null;
     }
