@@ -39,7 +39,7 @@ Page::render(function () {
 function renderIntro() {
     ?>
     <div class="intro">
-        <div style="background: url('/img/ridewithukrain_print_00033e_v2.png'); background-size: cover">
+        <div style="background: url('/img/ridewithukrain_print_00033e_v2.png.w400.jpg'); background-size: cover">
             <div>
                 <h2><?= Label::get('intro.platform.text') ?></h2>
                 <a class="btn-white" href="#steps"><?= Label::get('intro.platform.button') ?></a>
@@ -214,7 +214,7 @@ function renderTrips() {
         <div class="box">
             <p><?= Label::get('platforms.offering') ?></p>
             <div class="flex flex-wrap justify-center">
-                <a href="https://ride2go.de/"><img src="/img/logo_ride2go_green.png"></a>
+                <a href="https://ride2go.de/"><img src="/img/logo_ride2go_green.png.w400.png"></a>
                 <a href="https://mifaz.de/"><img src="/img/mifaz.png"></a>
                 <a href="https://bessermitfahren.de/"><img src="/img/bessermitfahren_logo.png"></a>
             </div>
@@ -271,7 +271,7 @@ function renderPlatforms() {
         <div class="box py-10 space-y-10 mx-3">
             <p><?= Label::get('platforms.subText') ?></p>
             <div class="flex flex-wrap justify-center">
-                <a href="https://ride2go.de/"><img src="/img/logo_ride2go_green.png"></a>
+                <a href="https://ride2go.de/"><img src="/img/logo_ride2go_green.png.w400.png"></a>
                 <a href="https://mifaz.de/"><img src="/img/mifaz.png"></a>
                 <a href="https://bessermitfahren.de/"><img src="/img/bessermitfahren_logo.png"></a>
             </div>
@@ -291,7 +291,7 @@ function renderPrintedCards() {
         <div class="box space-y-10 mx-3 mt-3">
             <p><?= Label::get('printed.hanger') ?></p>
             <div>
-                <img src="/img/hanger.png" class="mx-auto">
+                <img src="/img/hanger.png.w800.jpg" class="mx-auto">
             </div>
             <div class="text-primary underline pb-8 ml-8">
                 <a class="block" href="/pdf/Windshield_front+back_ridewithukraine.pdf"
@@ -302,7 +302,7 @@ function renderPrintedCards() {
         <div class="box space-y-10 mx-3 mt-3">
             <p><?= Label::get('printed.postcard') ?></p>
             <div>
-                <img src="/img/postcard.png" class="mx-auto">
+                <img src="/img/postcard.png.w800.jpg" class="mx-auto">
             </div>
             <div class="text-primary underline pb-8 ml-8">
                 <a class="block" href="/pdf/Flyer_front+back_ridewithukraine.pdf"
@@ -310,7 +310,7 @@ function renderPrintedCards() {
                 <a class="block"><?= Label::get('printed.order') ?></a>
             </div>
         </div>
-        <img src="/img/ridewithukrain_print_00008ee.png" class="my-3">
+        <img src="/img/ridewithukrain_print_00008ee.png.w800.jpg" class="my-3 w-full">
     </div>
     <?php
 }
