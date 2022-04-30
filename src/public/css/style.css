@@ -394,3 +394,17 @@ input[oninput^=Autocomplete] + div p:hover {
     @apply text-primary text-2xl
     hover:underline
 }
+
+
+#press h1 {
+    @apply text-center
+}
+
+#press .images {
+    @apply flex flex-wrap justify-center
+}
+
+#press .images a {
+    @apply w-1/2 max-w-xs object-cover my-auto
+    p-1 md:p-3
+}
