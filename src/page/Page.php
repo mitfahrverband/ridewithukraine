@@ -5,7 +5,7 @@ use core\html\document\Document;
 use core\http\Url;
 use core\language\Label;
 
-Label::addFile(__DIR__ . '/../labels/labels_en.properties');
+Label::addFile(__DIR__ . '/../labels/labels_de.properties');
 
 Document::addIcon('image/svg+xml', '/img/exporte_pikto_mitfahren_v2Element 1.svg');
 Document::addStylesheet(Url::version('/css/style.min.css'));

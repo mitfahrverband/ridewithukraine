@@ -396,15 +396,25 @@ input[oninput^=Autocomplete] + div p:hover {
 }
 
 
-#press h1 {
-    @apply text-center
+#press {
+    @apply flex justify-center
 }
 
-#press .images {
-    @apply flex flex-wrap justify-center
+#press .links, #press h1 {
+    @apply md:col-span-2 lg:col-span-3 mb-14
 }
 
-#press .images a {
-    @apply w-1/2 max-w-xs object-cover my-auto
-    p-1 md:p-3
+#press .links a {
+    @apply block text-blue-500 cursor-pointer
+    hover:underline
+}
+
+#press > div {
+    @apply grid md:grid-cols-2 lg:grid-cols-3 gap-3
+    mx-auto
+}
+
+#press > div > a {
+    @apply max-w-xs object-cover my-auto
+    /*p-1 md:p-3*/
 }
