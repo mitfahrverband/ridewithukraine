@@ -26,7 +26,9 @@
         Log::error($e);
     }
 
-    $query = Trip::query()->orderBy('depart')->limit(60);
+    $query = Trip::query()
+        ->where('depart > CURRENT_TIMESTAMP')
+        ->orderBy('depart')->limit(60);
 
     $lat = Request::paramUrl('lat')->float()->clamp(-90.0, 90.0)->value;
     $lon = Request::paramUrl('lon')->float()->clamp(-180.0, 180.0)->value;
