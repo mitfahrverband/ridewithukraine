@@ -12,6 +12,14 @@ class Menu {
             <a href="/privacy-policy.php"><p><?= Label::get('privacyPolicy.title') ?></p></a>
             <a href="mailto:contact@ridewithukraine.eu"><p><?= Label::get('contact.title') ?></p></a>
             <a href="/press.php"><p><?= Label::get('press.title') ?></p></a>
+            <div class="social">
+                <a href="mailto:contact@ridewithukraine.eu"
+                ><img src="/img/social/socialmedia-contact-icons00005.svg"></a>
+                <a href="https://www.instagram.com/ridewithukraine/"
+                ><img src="/img/social/socialmedia-contact-icons00001.svg"></a>
+                <a href="https://www.twitter.com/ridewithukraine"
+                ><img src="/img/social/socialmedia-contact-icons00002.svg"></a>
+            </div>
         </div>
         <?php
     }

@@ -97,8 +97,16 @@ body {
     space-y-3
 }
 
-.menu a:hover {
+.menu > a:hover {
     @apply underline
+}
+
+.menu .social {
+    @apply py-3 space-x-4
+}
+
+.menu .social img {
+    @apply inline-block h-7
 }
 
 .footer .logo {
