@@ -11,7 +11,7 @@ Page::render(function () {
     ?>
     <div class="col-span-3 mx-3">
         <h1>Impressum</h1>
-        <p>Verantwortlich für die Inhalte dieser Seite ist:<br>Bundesverband Mitfahren e.V. </p>
+        <p>Verantwortlich für die Inhalte dieser Seite ist:<br>Mitfahrverband e.V. </p>
         <p>E-Mail: post@mitfahrverband.org <br>Postanschrift: Landsberger Allee 61, D-10249 Berlin</p>
         <p>Registergericht: Amtsgericht Charlottenburg<br>Registernummer: VR 38932 B</p>
         <p>Vertretungsberechtigte Vorstandsmitglieder: </p>
